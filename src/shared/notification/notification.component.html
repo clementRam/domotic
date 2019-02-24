@@ -1,0 +1,6 @@
+<div *ngIf="notification?.displayed" class="notification alert fixed-bottom m-4 alert-{{notification?.type}}"
+  role="alert">
+  <div class="container">
+    {{notification?.message}}
+  </div>
+</div>

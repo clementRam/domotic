@@ -1,0 +1,11 @@
+div.card{
+    cursor: pointer;
+
+    &.off{
+        background-color: rgba(255, 255, 255, 0.6); 
+    }
+
+    img.device-img{
+      height: 30px;  
+    }
+}

@@ -23,9 +23,13 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/script.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -123,5 +127,10 @@
       }
     }
   },
-  "defaultProject": "domotique-angular"
+  "defaultProject": "domotique-angular",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

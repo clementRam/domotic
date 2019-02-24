@@ -1,0 +1,19 @@
+<div class="card" [class.off]="device.SubType === 'Switch' && device.Status === 'Off'" (click)="handleClick()">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <img src="./src/assets/images/{{device.TypeImg}}.png" class="device-img" alt="device icon">
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col">
+        {{ device.Name }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col font-weight-light">
+        {{ device.Data }}
+      </div>
+    </div>
+  </div>
+</div>
