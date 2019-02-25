@@ -145,7 +145,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\" [class.off]=\"device.SubType === 'Switch' && device.Status === 'Off'\" (click)=\"handleClick()\">\n  <div class=\"card-body\">\n    <div class=\"row\">\n      <div class=\"col\">\n        <img src=\"./src/assets/images/{{device.TypeImg}}.png\" class=\"device-img\" alt=\"device icon\">\n      </div>\n    </div>\n    <div class=\"row mt-3\">\n      <div class=\"col\">\n        {{ device.Name }}\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col font-weight-light\">\n        {{ device.Data }}\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"card\" [class.off]=\"device.SubType === 'Switch' && device.Status === 'Off'\" (click)=\"handleClick()\">\n  <div class=\"card-body\">\n    <div class=\"row\">\n      <div class=\"col\">\n        <img src=\"assets/images/{{device.TypeImg}}.png\" class=\"device-img\" alt=\"device icon\">\n      </div>\n    </div>\n    <div class=\"row mt-3\">\n      <div class=\"col\">\n        {{ device.Name }}\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col font-weight-light\">\n        {{ device.Data }}\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -218,7 +218,7 @@ var DeviceComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"devices$ | async; let devices\" class=\"row\">\n  <div *ngFor=\"let device of devices.result\" class=\"col-6 col-md-4 col-lg-3 mt-4\">\n    <app-device [device]=\"device\"></app-device>\n  </div>\n</div>\n"
+module.exports = "<div *ngIf=\"devices$ | async; let devices\" class=\"row\">\n  <div *ngFor=\"let device of devices.result\" class=\"col-6 col-md-4 col-lg-3 mt-4\">\n    <app-device [device]=\"device\"></app-device>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -229,7 +229,7 @@ module.exports = "<div *ngIf=\"devices$ | async; let devices\" class=\"row\">\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".example-box {\n  width: 200px;\n  height: 200px;\n  border: solid 1px #ccc;\n  color: rgba(0, 0, 0, 0.87);\n  cursor: move;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n  background: #fff;\n  border-radius: 4px;\n  position: relative;\n  z-index: 1;\n  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }\n\n.example-box:active {\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12); }\n"
 
 /***/ }),
 
@@ -244,8 +244,7 @@ module.exports = ""
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DevicesComponent", function() { return DevicesComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var src_dashboard_services_device_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/dashboard/services/device.service */ "./src/dashboard/services/device.service.ts");
-/* harmony import */ var src_store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/store/store */ "./src/store/store.ts");
+/* harmony import */ var src_store_store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/store/store */ "./src/store/store.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -257,15 +256,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-
 var DevicesComponent = /** @class */ (function () {
-    function DevicesComponent(deviceService, store) {
-        this.deviceService = deviceService;
+    function DevicesComponent(store) {
         this.store = store;
     }
     DevicesComponent.prototype.ngOnInit = function () {
-        this.deviceService.getDevices().subscribe();
-        this.devices$ = this.store.select(src_store_store__WEBPACK_IMPORTED_MODULE_2__["DefaultStoreDataNames"].DEVICES);
+        this.devices$ = this.store.select(src_store_store__WEBPACK_IMPORTED_MODULE_1__["DefaultStoreDataNames"].DEVICES);
     };
     DevicesComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -273,7 +269,7 @@ var DevicesComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./devices.component.html */ "./src/dashboard/components/devices/devices.component.html"),
             styles: [__webpack_require__(/*! ./devices.component.scss */ "./src/dashboard/components/devices/devices.component.scss")]
         }),
-        __metadata("design:paramtypes", [src_dashboard_services_device_service__WEBPACK_IMPORTED_MODULE_1__["DeviceService"], src_store_store__WEBPACK_IMPORTED_MODULE_2__["Store"]])
+        __metadata("design:paramtypes", [src_store_store__WEBPACK_IMPORTED_MODULE_1__["Store"]])
     ], DevicesComponent);
     return DevicesComponent;
 }());
@@ -300,7 +296,7 @@ module.exports = "<app-devices></app-devices>"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".example-box {\n  border: solid 1px #ccc;\n  color: rgba(0, 0, 0, 0.87);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n  background: #fff;\n  border-radius: 4px;\n  position: relative;\n  z-index: 1;\n  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }\n\n.example-box:active {\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12); }\n"
 
 /***/ }),
 
@@ -315,6 +311,7 @@ module.exports = ""
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardViewComponent", function() { return DashboardViewComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_dashboard_services_device_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/dashboard/services/device.service */ "./src/dashboard/services/device.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -325,10 +322,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var DashboardViewComponent = /** @class */ (function () {
-    function DashboardViewComponent() {
+    function DashboardViewComponent(deviceService) {
+        this.deviceService = deviceService;
     }
     DashboardViewComponent.prototype.ngOnInit = function () {
+        this.deviceService.getDevices().subscribe();
     };
     DashboardViewComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -336,7 +336,7 @@ var DashboardViewComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./dashboard-view.component.html */ "./src/dashboard/container/dashboard-view/dashboard-view.component.html"),
             styles: [__webpack_require__(/*! ./dashboard-view.component.scss */ "./src/dashboard/container/dashboard-view/dashboard-view.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [src_dashboard_services_device_service__WEBPACK_IMPORTED_MODULE_1__["DeviceService"]])
     ], DashboardViewComponent);
     return DashboardViewComponent;
 }());
@@ -360,6 +360,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _container_dashboard_view_dashboard_view_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./container/dashboard-view/dashboard-view.component */ "./src/dashboard/container/dashboard-view/dashboard-view.component.ts");
 /* harmony import */ var _components_devices_devices_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/devices/devices.component */ "./src/dashboard/components/devices/devices.component.ts");
 /* harmony import */ var _components_device_device_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/device/device.component */ "./src/dashboard/components/device/device.component.ts");
+/* harmony import */ var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/cdk/drag-drop */ "./node_modules/@angular/cdk/esm5/drag-drop.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -371,13 +372,15 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var DashboardModule = /** @class */ (function () {
     function DashboardModule() {
     }
     DashboardModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
             imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_5__["DragDropModule"]
             ],
             declarations: [_container_dashboard_view_dashboard_view_component__WEBPACK_IMPORTED_MODULE_2__["DashboardViewComponent"], _components_devices_devices_component__WEBPACK_IMPORTED_MODULE_3__["DevicesComponent"], _components_device_device_component__WEBPACK_IMPORTED_MODULE_4__["DeviceComponent"]]
         })
