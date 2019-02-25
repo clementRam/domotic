@@ -7,6 +7,7 @@ import { Devices } from '../models/devices.model';
 import { DefaultStoreDataNames, Store } from 'src/store/store';
 import { map } from 'rxjs/operators';
 import { ActionResponse } from '../models/actionResponse.model';
+import { NotificationService } from 'src/shared/services/notification.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ import { ActionResponse } from '../models/actionResponse.model';
 
 export class DeviceService {
 
-  constructor(private http: HttpClient, private store: Store) { }
+  constructor(private http: HttpClient, private store: Store, private notificationService: NotificationService) { }
 
   getDevices(): Observable<Devices> {
     const params = new HttpParams()
@@ -40,24 +41,43 @@ export class DeviceService {
     return this.http.get<Device>(environment.apiUrl, {params: params});
   }
 
-  public switchState(device: Device): void {
-    if(this.isSwitchType(device)) {
-      const params = new HttpParams()
-      .set('type', 'command')
-      .append('param', 'switchlight')
-      .append('idx', device.idx)
-      .append('switchcmd', 'Toggle')
-  
-      this.http.get(environment.apiUrl, {params: params, observe: 'response'})
-      .subscribe((response: HttpResponse<ActionResponse>) => {
-        if(response.body.status === 'OK') {
-          this.getDevices().subscribe();
-        }
-      });
-    }
+  public switchState(device: Device): Observable<ActionResponse> {
+    const params = new HttpParams()
+    .set('type', 'command')
+    .append('param', 'switchlight')
+    .append('idx', device.idx)
+    .append('switchcmd', 'Toggle')
+
+    return this.http.get<ActionResponse>(environment.apiUrl, {params: params, observe: 'response'})
+    .pipe(map((response: HttpResponse<ActionResponse>) => {
+      if(response.body.status === 'OK') {
+        this.getDevices().subscribe();
+      } else {
+        this.notificationService.sendNotificationTemp(response.body.status + ': ' + response.body.title, 'danger');
+      }
+      return response.body;
+    })) as Observable<ActionResponse>;
   }
 
-  private isSwitchType(device: Device): boolean {
+  public updateName(device: Device, newName: string): Observable<ActionResponse> {
+    const params = new HttpParams()
+    .set('type', 'setused')
+    .append('idx', device.idx)
+    .append('name', newName)
+    .append('used', 'true');
+
+    return this.http.get<ActionResponse>(environment.apiUrl, {params: params, observe: 'response'})
+    .pipe(map((response: HttpResponse<ActionResponse>) => {
+      if(response.body.status === 'OK') {
+        this.getDevices().subscribe();
+      } else {
+        this.notificationService.sendNotificationTemp(response.body.status + ': ' + response.body.title, 'danger');
+      }
+      return response.body;
+    }));
+  }
+
+  public isSwitchType(device: Device): boolean {
     return device.SwitchType === "On/Off" || device.SwitchType === "Dimmer";
   }
 }

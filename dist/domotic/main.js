@@ -41,7 +41,7 @@ module.exports = "<div class=\"main container\">\n  <router-outlet></router-outl
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "div.main {\n  padding-top: 50px; }\n"
+module.exports = "div.main {\n  padding-top: 75px;\n  position: relative; }\n"
 
 /***/ }),
 
@@ -145,7 +145,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\" [class.off]=\"device.SubType === 'Switch' && device.Status === 'Off'\" (click)=\"handleClick()\">\n  <div class=\"card-body\">\n    <div class=\"row\">\n      <div class=\"col\">\n        <img src=\"assets/images/{{device.TypeImg}}.png\" class=\"device-img\" alt=\"device icon\">\n      </div>\n    </div>\n    <div class=\"row mt-3\">\n      <div class=\"col\">\n        {{ device.Name }}\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col font-weight-light\">\n        {{ device.Data }}\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"card\" [class.off]=\"device.SubType === 'Switch' && device.Status === 'Off'\" (click)=\"handleClick()\">\n  <div class=\"card-body\">\n    <div class=\"row\">\n      <div class=\"col\">\n        <img src=\"assets/images/{{device.TypeImg}}.png\" class=\"device-img\" alt=\"device icon\">\n      </div>\n    </div>\n    <div class=\"row mt-3\">\n      <div class=\"col\">\n        <span *ngIf=\"!(devicesEditable$ | async); else editName\">\n          {{ device.Name }}\n        </span>\n        <ng-template #editName>\n          <input type=\"text\" class=\"form-control\" value=\"{{device.Name}}\" (focusout)=\"handleFocusOutName($event)\">\n        </ng-template>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col font-weight-light\">\n        {{ device.Data }}\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -156,7 +156,7 @@ module.exports = "<div class=\"card\" [class.off]=\"device.SubType === 'Switch' 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "div.card {\n  cursor: pointer; }\n  div.card.off {\n    background-color: rgba(255, 255, 255, 0.6); }\n  div.card img.device-img {\n    height: 30px; }\n"
+module.exports = "div.card {\n  cursor: pointer;\n  border-radius: 5px; }\n  div.card.off {\n    background-color: rgba(255, 255, 255, 0.6); }\n  div.card img.device-img {\n    height: 30px; }\n  div.card .form-control {\n    background-image: linear-gradient(0deg, #3f51b5 2px, rgba(63, 81, 181, 0) 0), linear-gradient(0deg, rgba(0, 0, 0, 0.26) 1px, transparent 0);\n    font-size: .875rem; }\n  div.card .form-control:focus {\n      box-shadow: none; }\n"
 
 /***/ }),
 
@@ -172,6 +172,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeviceComponent", function() { return DeviceComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var src_dashboard_services_device_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/dashboard/services/device.service */ "./src/dashboard/services/device.service.ts");
+/* harmony import */ var src_store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/store/store */ "./src/store/store.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -183,14 +184,22 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var DeviceComponent = /** @class */ (function () {
-    function DeviceComponent(deviceService) {
+    function DeviceComponent(deviceService, store) {
         this.deviceService = deviceService;
+        this.store = store;
     }
     DeviceComponent.prototype.ngOnInit = function () {
+        console.log(this.device);
+        this.devicesEditable$ = this.store.select(src_store_store__WEBPACK_IMPORTED_MODULE_2__["DefaultStoreDataNames"].DEVICES_EDITABLE);
     };
     DeviceComponent.prototype.handleClick = function () {
-        this.deviceService.switchState(this.device);
+        if (this.deviceService.isSwitchType(this.device))
+            this.deviceService.switchState(this.device).subscribe();
+    };
+    DeviceComponent.prototype.handleFocusOutName = function (event) {
+        this.deviceService.updateName(this.device, event.target.value).subscribe();
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -202,7 +211,7 @@ var DeviceComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./device.component.html */ "./src/dashboard/components/device/device.component.html"),
             styles: [__webpack_require__(/*! ./device.component.scss */ "./src/dashboard/components/device/device.component.scss")]
         }),
-        __metadata("design:paramtypes", [src_dashboard_services_device_service__WEBPACK_IMPORTED_MODULE_1__["DeviceService"]])
+        __metadata("design:paramtypes", [src_dashboard_services_device_service__WEBPACK_IMPORTED_MODULE_1__["DeviceService"], src_store_store__WEBPACK_IMPORTED_MODULE_2__["Store"]])
     ], DeviceComponent);
     return DeviceComponent;
 }());
@@ -278,6 +287,79 @@ var DevicesComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/dashboard/components/settings/settings.component.html":
+/*!*******************************************************************!*\
+  !*** ./src/dashboard/components/settings/settings.component.html ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"settings\">\n    <a *ngIf=\"!(devicesEditable$ | async); else saveBtn\" class=\"btn btn-secondary btn-edit mr-3\" (click)=\"handleClickEdit()\">Modifier</a>\n    <ng-template #saveBtn>\n      <a class=\"btn btn-secondary btn-edit mr-3\" (click)=\"handleClickSave()\">Ok</a>\n    </ng-template>\n    <a href=\"http://raspberry:8080/#/Hardware\" class=\"btn btn-secondary btn-add\">+</a>\n</div>"
+
+/***/ }),
+
+/***/ "./src/dashboard/components/settings/settings.component.scss":
+/*!*******************************************************************!*\
+  !*** ./src/dashboard/components/settings/settings.component.scss ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "div.settings {\n  position: absolute;\n  right: 10px;\n  top: 10px; }\n  div.settings a {\n    background-color: rgba(0, 0, 0, 0.4);\n    color: #eeeeee;\n    font-weight: 100;\n    text-transform: none; }\n  div.settings a.btn-add {\n      border-radius: 100%;\n      font-size: 22px;\n      padding: 0px 10px; }\n  div.settings a.btn-edit {\n      font-size: 16px;\n      border-radius: 20px;\n      padding: 2px 16px; }\n"
+
+/***/ }),
+
+/***/ "./src/dashboard/components/settings/settings.component.ts":
+/*!*****************************************************************!*\
+  !*** ./src/dashboard/components/settings/settings.component.ts ***!
+  \*****************************************************************/
+/*! exports provided: SettingsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SettingsComponent", function() { return SettingsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_store_store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/store/store */ "./src/store/store.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SettingsComponent = /** @class */ (function () {
+    function SettingsComponent(store) {
+        this.store = store;
+    }
+    SettingsComponent.prototype.ngOnInit = function () {
+        this.devicesEditable$ = this.store.select(src_store_store__WEBPACK_IMPORTED_MODULE_1__["DefaultStoreDataNames"].DEVICES_EDITABLE);
+    };
+    SettingsComponent.prototype.handleClickEdit = function () {
+        this.store.set(src_store_store__WEBPACK_IMPORTED_MODULE_1__["DefaultStoreDataNames"].DEVICES_EDITABLE, true);
+    };
+    SettingsComponent.prototype.handleClickSave = function () {
+        this.store.set(src_store_store__WEBPACK_IMPORTED_MODULE_1__["DefaultStoreDataNames"].DEVICES_EDITABLE, false);
+    };
+    SettingsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-settings',
+            template: __webpack_require__(/*! ./settings.component.html */ "./src/dashboard/components/settings/settings.component.html"),
+            styles: [__webpack_require__(/*! ./settings.component.scss */ "./src/dashboard/components/settings/settings.component.scss")]
+        }),
+        __metadata("design:paramtypes", [src_store_store__WEBPACK_IMPORTED_MODULE_1__["Store"]])
+    ], SettingsComponent);
+    return SettingsComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/dashboard/container/dashboard-view/dashboard-view.component.html":
 /*!******************************************************************************!*\
   !*** ./src/dashboard/container/dashboard-view/dashboard-view.component.html ***!
@@ -285,7 +367,7 @@ var DevicesComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-devices></app-devices>"
+module.exports = "<app-settings></app-settings>\n<app-devices></app-devices>"
 
 /***/ }),
 
@@ -296,7 +378,7 @@ module.exports = "<app-devices></app-devices>"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-box {\n  border: solid 1px #ccc;\n  color: rgba(0, 0, 0, 0.87);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n  background: #fff;\n  border-radius: 4px;\n  position: relative;\n  z-index: 1;\n  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }\n\n.example-box:active {\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12); }\n"
+module.exports = ""
 
 /***/ }),
 
@@ -361,12 +443,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_devices_devices_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/devices/devices.component */ "./src/dashboard/components/devices/devices.component.ts");
 /* harmony import */ var _components_device_device_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/device/device.component */ "./src/dashboard/components/device/device.component.ts");
 /* harmony import */ var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/cdk/drag-drop */ "./node_modules/@angular/cdk/esm5/drag-drop.es5.js");
+/* harmony import */ var _components_settings_settings_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/settings/settings.component */ "./src/dashboard/components/settings/settings.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -382,7 +466,7 @@ var DashboardModule = /** @class */ (function () {
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
                 _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_5__["DragDropModule"]
             ],
-            declarations: [_container_dashboard_view_dashboard_view_component__WEBPACK_IMPORTED_MODULE_2__["DashboardViewComponent"], _components_devices_devices_component__WEBPACK_IMPORTED_MODULE_3__["DevicesComponent"], _components_device_device_component__WEBPACK_IMPORTED_MODULE_4__["DeviceComponent"]]
+            declarations: [_container_dashboard_view_dashboard_view_component__WEBPACK_IMPORTED_MODULE_2__["DashboardViewComponent"], _components_devices_devices_component__WEBPACK_IMPORTED_MODULE_3__["DevicesComponent"], _components_device_device_component__WEBPACK_IMPORTED_MODULE_4__["DeviceComponent"], _components_settings_settings_component__WEBPACK_IMPORTED_MODULE_6__["SettingsComponent"]]
         })
     ], DashboardModule);
     return DashboardModule;
@@ -407,6 +491,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
 /* harmony import */ var src_store_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/store/store */ "./src/store/store.ts");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var src_shared_services_notification_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/shared/services/notification.service */ "./src/shared/services/notification.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -421,10 +506,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var DeviceService = /** @class */ (function () {
-    function DeviceService(http, store) {
+    function DeviceService(http, store, notificationService) {
         this.http = http;
         this.store = store;
+        this.notificationService = notificationService;
     }
     DeviceService.prototype.getDevices = function () {
         var _this = this;
@@ -448,19 +535,39 @@ var DeviceService = /** @class */ (function () {
     };
     DeviceService.prototype.switchState = function (device) {
         var _this = this;
-        if (this.isSwitchType(device)) {
-            var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]()
-                .set('type', 'command')
-                .append('param', 'switchlight')
-                .append('idx', device.idx)
-                .append('switchcmd', 'Toggle');
-            this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].apiUrl, { params: params, observe: 'response' })
-                .subscribe(function (response) {
-                if (response.body.status === 'OK') {
-                    _this.getDevices().subscribe();
-                }
-            });
-        }
+        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]()
+            .set('type', 'command')
+            .append('param', 'switchlight')
+            .append('idx', device.idx)
+            .append('switchcmd', 'Toggle');
+        return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].apiUrl, { params: params, observe: 'response' })
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (response) {
+            if (response.body.status === 'OK') {
+                _this.getDevices().subscribe();
+            }
+            else {
+                _this.notificationService.sendNotificationTemp(response.body.status + ': ' + response.body.title, 'danger');
+            }
+            return response.body;
+        }));
+    };
+    DeviceService.prototype.updateName = function (device, newName) {
+        var _this = this;
+        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]()
+            .set('type', 'setused')
+            .append('idx', device.idx)
+            .append('name', newName)
+            .append('used', 'true');
+        return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].apiUrl, { params: params, observe: 'response' })
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (response) {
+            if (response.body.status === 'OK') {
+                _this.getDevices().subscribe();
+            }
+            else {
+                _this.notificationService.sendNotificationTemp(response.body.status + ': ' + response.body.title, 'danger');
+            }
+            return response.body;
+        }));
     };
     DeviceService.prototype.isSwitchType = function (device) {
         return device.SwitchType === "On/Off" || device.SwitchType === "Dimmer";
@@ -469,7 +576,7 @@ var DeviceService = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], src_store_store__WEBPACK_IMPORTED_MODULE_3__["Store"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], src_store_store__WEBPACK_IMPORTED_MODULE_3__["Store"], src_shared_services_notification_service__WEBPACK_IMPORTED_MODULE_5__["NotificationService"]])
     ], DeviceService);
     return DeviceService;
 }());
@@ -625,8 +732,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_dashboard_container_dashboard_view_dashboard_view_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/dashboard/container/dashboard-view/dashboard-view.component */ "./src/dashboard/container/dashboard-view/dashboard-view.component.ts");
 
 var appRoutes = [
-    { path: "dashboard", component: src_dashboard_container_dashboard_view_dashboard_view_component__WEBPACK_IMPORTED_MODULE_0__["DashboardViewComponent"] },
-    { path: "**", redirectTo: "dashboard" }
+    { path: "", component: src_dashboard_container_dashboard_view_dashboard_view_component__WEBPACK_IMPORTED_MODULE_0__["DashboardViewComponent"] },
+    { path: "**", redirectTo: "" }
 ];
 
 
@@ -853,11 +960,13 @@ var __assign = (undefined && undefined.__assign) || Object.assign || function(t)
 
 
 var initState = {
-    devices: undefined
+    devices: undefined,
+    devicesEditable: false
 };
 var DefaultStoreDataNames;
 (function (DefaultStoreDataNames) {
     DefaultStoreDataNames["DEVICES"] = "devices";
+    DefaultStoreDataNames["DEVICES_EDITABLE"] = "devicesEditable";
 })(DefaultStoreDataNames || (DefaultStoreDataNames = {}));
 var Store = /** @class */ (function () {
     function Store() {

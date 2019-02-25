@@ -1,0 +1,24 @@
+div.settings {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  
+    a{
+      background-color: rgba($color: #000000, $alpha: 0.4);
+      color: #eeeeee;
+      font-weight: 100;
+      text-transform: none;
+      
+      &.btn-add{
+        border-radius: 100%;
+        font-size: 22px;
+        padding: 0px 10px;
+      }
+  
+      &.btn-edit{
+        font-size: 16px;
+        border-radius: 20px;
+        padding: 2px 16px;
+      }
+    }
+  }

@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Device } from 'src/dashboard/models/device.model';
 import { DeviceService } from 'src/dashboard/services/device.service';
+import { Store, DefaultStoreDataNames } from 'src/store/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-device',
@@ -12,13 +14,22 @@ export class DeviceComponent implements OnInit {
   @Input()
   device: Device;
 
-  constructor(private deviceService: DeviceService) { }
+  devicesEditable$: Observable<boolean>;
+
+  constructor(private deviceService: DeviceService, private store: Store) { }
 
   ngOnInit() {
+    console.log(this.device)
+    this.devicesEditable$ = this.store.select<boolean>(DefaultStoreDataNames.DEVICES_EDITABLE);
   }
 
   handleClick(): void{
-    this.deviceService.switchState(this.device);
+    if(this.deviceService.isSwitchType(this.device))
+      this.deviceService.switchState(this.device).subscribe();
+  }
+
+  handleFocusOutName(event: any): void {
+    this.deviceService.updateName(this.device, event.target.value).subscribe();
   }
 
 }

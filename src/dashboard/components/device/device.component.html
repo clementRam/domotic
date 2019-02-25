@@ -7,7 +7,12 @@
     </div>
     <div class="row mt-3">
       <div class="col">
-        {{ device.Name }}
+        <span *ngIf="!(devicesEditable$ | async); else editName">
+          {{ device.Name }}
+        </span>
+        <ng-template #editName>
+          <input type="text" class="form-control" value="{{device.Name}}" (focusout)="handleFocusOutName($event)">
+        </ng-template>
       </div>
     </div>
     <div class="row">
