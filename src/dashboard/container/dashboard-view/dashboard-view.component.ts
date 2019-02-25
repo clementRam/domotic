@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeviceService } from 'src/dashboard/services/device.service';
 
 @Component({
   selector: 'app-dashboard-view',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private deviceService: DeviceService) { }
 
   ngOnInit() {
+    this.deviceService.getDevices().subscribe();
   }
 
 }
