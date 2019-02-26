@@ -41,7 +41,7 @@ module.exports = "<div class=\"main container\">\n  <router-outlet></router-outl
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "div.main {\n  padding-top: 75px;\n  position: relative; }\n"
+module.exports = "div.main {\n  padding-top: 70px;\n  padding-bottom: 70px;\n  position: relative; }\n"
 
 /***/ }),
 
@@ -145,7 +145,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\" [class.off]=\"device.SubType === 'Switch' && device.Status === 'Off'\" (click)=\"handleClick()\">\n  <div class=\"card-body\">\n    <div class=\"row\">\n      <div class=\"col\">\n        <img src=\"assets/images/{{device.TypeImg}}.png\" class=\"device-img\" alt=\"device icon\">\n      </div>\n    </div>\n    <div class=\"row mt-3\">\n      <div class=\"col\">\n        <span *ngIf=\"!(devicesEditable$ | async); else editName\">\n          {{ device.Name }}\n        </span>\n        <ng-template #editName>\n          <input type=\"text\" class=\"form-control\" value=\"{{device.Name}}\" (focusout)=\"handleFocusOutName($event)\">\n        </ng-template>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col font-weight-light\">\n        {{ device.Data }}\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"card\" [class.off]=\"device.SubType === 'Switch' && device.Status === 'Off'\" (click)=\"handleClick()\">\n  <div class=\"card-body p-3\">\n    <div class=\"row\">\n      <div class=\"col pr-2 pl-2\">\n        <img src=\"assets/images/{{device.TypeImg}}.png\" class=\"device-img\" alt=\"device icon\">\n      </div>\n    </div>\n    <div class=\"row mt-2\">\n      <div class=\"col pr-2 pl-2\">\n        <span *ngIf=\"!(devicesEditable$ | async); else editName\">\n          {{ device.Name }}\n        </span>\n        <ng-template #editName>\n          <input type=\"text\" class=\"form-control\" value=\"{{device.Name}}\" (focusout)=\"handleFocusOutName($event)\">\n        </ng-template>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col pr-2 pl-2 font-weight-light\">\n        {{ device.Data }}\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -227,7 +227,7 @@ var DeviceComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"devices$ | async; let devices\" class=\"row\">\n  <div *ngFor=\"let device of devices.result\" class=\"col-6 col-md-4 col-lg-3 mt-4\">\n    <app-device [device]=\"device\"></app-device>\n  </div>\n</div>"
+module.exports = "<div *ngIf=\"devices$ | async; let devices\" class=\"row pr-2 pl-2\">\n  <div *ngFor=\"let device of devices.result\" class=\"p-1 col-4 col-lg-3 mt-2\">\n    <app-device [device]=\"device\"></app-device>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -238,7 +238,7 @@ module.exports = "<div *ngIf=\"devices$ | async; let devices\" class=\"row\">\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-box {\n  width: 200px;\n  height: 200px;\n  border: solid 1px #ccc;\n  color: rgba(0, 0, 0, 0.87);\n  cursor: move;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n  background: #fff;\n  border-radius: 4px;\n  position: relative;\n  z-index: 1;\n  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }\n\n.example-box:active {\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12); }\n"
+module.exports = ""
 
 /***/ }),
 
