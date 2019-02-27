@@ -1,6 +1,6 @@
 div.card{
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
     &.off{
         background-color: rgba(255, 255, 255, 0.6); 
     }
@@ -15,6 +15,10 @@ div.card{
       &:focus{
         box-shadow: none;
       }
+    } 
+
+    .device-name {
+      text-overflow: ellipsis;
     }
     
 }

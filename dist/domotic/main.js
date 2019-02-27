@@ -145,7 +145,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\" [class.off]=\"device.SubType === 'Switch' && device.Status === 'Off'\" (click)=\"handleClick()\">\n  <div class=\"card-body p-3\">\n    <div class=\"row\">\n      <div class=\"col pr-2 pl-2\">\n        <img src=\"assets/images/{{device.TypeImg}}.png\" class=\"device-img\" alt=\"device icon\">\n      </div>\n    </div>\n    <div class=\"row mt-2\">\n      <div class=\"col pr-2 pl-2\">\n        <span *ngIf=\"!(devicesEditable$ | async); else editName\">\n          {{ device.Name }}\n        </span>\n        <ng-template #editName>\n          <input type=\"text\" class=\"form-control\" value=\"{{device.Name}}\" (focusout)=\"handleFocusOutName($event)\">\n        </ng-template>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col pr-2 pl-2 font-weight-light\">\n        {{ device.Data }}\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"card\" [class.off]=\"device.SubType === 'Switch' && device.Status === 'Off'\" (click)=\"handleClick()\">\n  <div class=\"card-body pr-3 pl-3 pt-2 pb-2\">\n    <div class=\"row\">\n      <div class=\"col pr-2 pl-2\">\n        <img src=\"assets/images/{{device.TypeImg}}.png\" class=\"device-img\" alt=\"device icon\">\n      </div>\n    </div>\n    <div class=\"row mt-2\">\n      <div class=\"col pr-2 pl-2 device-name\">\n        <span *ngIf=\"!devicesEditable; else editName\" class=\"\">\n          {{ device.Name }}\n        </span>\n        <ng-template #editName>\n          <input type=\"text\" class=\"form-control\" value=\"{{device.Name}}\" (focusout)=\"handleFocusOutName($event)\">\n        </ng-template>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col pr-2 pl-2 font-weight-light\">\n        {{ device.Data }}\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -156,7 +156,7 @@ module.exports = "<div class=\"card\" [class.off]=\"device.SubType === 'Switch' 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "div.card {\n  cursor: pointer;\n  border-radius: 5px; }\n  div.card.off {\n    background-color: rgba(255, 255, 255, 0.6); }\n  div.card img.device-img {\n    height: 30px; }\n  div.card .form-control {\n    background-image: linear-gradient(0deg, #3f51b5 2px, rgba(63, 81, 181, 0) 0), linear-gradient(0deg, rgba(0, 0, 0, 0.26) 1px, transparent 0);\n    font-size: .875rem; }\n  div.card .form-control:focus {\n      box-shadow: none; }\n"
+module.exports = "div.card {\n  cursor: pointer;\n  border-radius: 10px; }\n  div.card.off {\n    background-color: rgba(255, 255, 255, 0.6); }\n  div.card img.device-img {\n    height: 30px; }\n  div.card .form-control {\n    background-image: linear-gradient(0deg, #3f51b5 2px, rgba(63, 81, 181, 0) 0), linear-gradient(0deg, rgba(0, 0, 0, 0.26) 1px, transparent 0);\n    font-size: .875rem; }\n  div.card .form-control:focus {\n      box-shadow: none; }\n  div.card .device-name {\n    text-overflow: ellipsis; }\n"
 
 /***/ }),
 
@@ -191,11 +191,13 @@ var DeviceComponent = /** @class */ (function () {
         this.store = store;
     }
     DeviceComponent.prototype.ngOnInit = function () {
+        var _this = this;
         console.log(this.device);
-        this.devicesEditable$ = this.store.select(src_store_store__WEBPACK_IMPORTED_MODULE_2__["DefaultStoreDataNames"].DEVICES_EDITABLE);
+        this.store.select(src_store_store__WEBPACK_IMPORTED_MODULE_2__["DefaultStoreDataNames"].DEVICES_EDITABLE)
+            .subscribe(function (devicesEditable) { return _this.devicesEditable = devicesEditable; });
     };
     DeviceComponent.prototype.handleClick = function () {
-        if (this.deviceService.isSwitchType(this.device))
+        if (this.deviceService.isSwitchType(this.device) && !this.devicesEditable)
             this.deviceService.switchState(this.device).subscribe();
     };
     DeviceComponent.prototype.handleFocusOutName = function (event) {

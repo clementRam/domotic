@@ -14,17 +14,18 @@ export class DeviceComponent implements OnInit {
   @Input()
   device: Device;
 
-  devicesEditable$: Observable<boolean>;
+  devicesEditable: boolean;
 
   constructor(private deviceService: DeviceService, private store: Store) { }
 
   ngOnInit() {
     console.log(this.device)
-    this.devicesEditable$ = this.store.select<boolean>(DefaultStoreDataNames.DEVICES_EDITABLE);
+    this.store.select<boolean>(DefaultStoreDataNames.DEVICES_EDITABLE)
+    .subscribe(devicesEditable => this.devicesEditable = devicesEditable);
   }
 
   handleClick(): void{
-    if(this.deviceService.isSwitchType(this.device))
+    if(this.deviceService.isSwitchType(this.device) && !this.devicesEditable)
       this.deviceService.switchState(this.device).subscribe();
   }
 
