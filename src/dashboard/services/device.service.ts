@@ -17,7 +17,7 @@ export class DeviceService {
 
   constructor(private http: HttpClient, private store: Store, private notificationService: NotificationService) { }
 
-  getDevices(): Observable<Devices> {
+  public getDevices(): Observable<Devices> {
     const params = new HttpParams()
     .set('type', 'devices')
     .append('favorite', '1')
@@ -33,7 +33,7 @@ export class DeviceService {
     ) as Observable<Devices>
   }
 
-  getDevice(idx: string): Observable<Device> {
+  public getDevice(idx: string): Observable<Device> {
     const params = new HttpParams()
     .set('rid', idx)
     .append('type', 'devices');
@@ -75,6 +75,25 @@ export class DeviceService {
       }
       return response.body;
     }));
+  }
+
+  public updateDescription(device: Device, newDescription: string): Observable<ActionResponse> {
+    const params = new HttpParams()
+      .set('description', newDescription)
+      .append('idx', device.idx)
+      .append('name', device.Name)
+      .append('type', 'setused')
+      .append('used', 'true');
+    
+    return this.http.get<ActionResponse>(environment.apiUrl, {params: params, observe: 'response'})
+    .pipe(map((response: HttpResponse<ActionResponse>) => {
+      if(response.body.status === 'OK') {
+        this.getDevices().subscribe();
+      } else {
+        this.notificationService.sendNotificationTemp(response.body.status + ': ' + response.body.title, 'danger');
+      }
+      return response.body;
+    })) 
   }
 
   public isSwitchType(device: Device): boolean {

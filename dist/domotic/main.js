@@ -145,7 +145,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\" [class.off]=\"device.SubType === 'Switch' && device.Status === 'Off'\" (click)=\"handleClick()\">\n  <div class=\"card-body pr-3 pl-3 pt-2 pb-2\">\n    <div class=\"row\">\n      <div class=\"col pr-2 pl-2\">\n        <img src=\"assets/images/{{device.TypeImg}}.png\" class=\"device-img\" alt=\"device icon\">\n      </div>\n    </div>\n    <div class=\"row mt-2\">\n      <div class=\"col pr-2 pl-2 device-name\">\n        <span *ngIf=\"!devicesEditable; else editName\" class=\"\">\n          {{ device.Name }}\n        </span>\n        <ng-template #editName>\n          <input type=\"text\" class=\"form-control\" value=\"{{device.Name}}\" (focusout)=\"handleFocusOutName($event)\">\n        </ng-template>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col pr-2 pl-2 font-weight-light\">\n        {{ device.Data }}\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"card\" [class.off]=\"device.SubType === 'Switch' && device.Status === 'Off'\" (click)=\"handleClick()\">\n  <div class=\"card-body pr-3 pl-3 pt-2 pb-2\">\n    <div class=\"row\">\n      <div class=\"col pr-2 pl-2\">\n        <img src=\"assets/images/{{device.TypeImg}}.png\" class=\"device-img\" alt=\"device icon\">\n      </div>\n    </div>\n    <div class=\"row mt-2\">\n      <div class=\"col pr-2 pl-2 device-name\">\n        <span *ngIf=\"!devicesEditable; else editDescription\" class=\"\">\n          {{ device.Description }}\n        </span>\n        <ng-template #editDescription>\n          <input type=\"text\" class=\"form-control\" value=\"{{device.Description}}\" (focusout)=\"handleFocusOutDescription($event)\">\n        </ng-template>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col pr-2 pl-2 device-name\">\n        <span *ngIf=\"!devicesEditable; else editName\" class=\"\">\n          {{ device.Name }}\n        </span>\n        <ng-template #editName>\n            <input id=\"deviceName\" type=\"text\" class=\"form-control\" value=\"{{device.Name}}\" (focusout)=\"handleFocusOutName($event)\">\n        </ng-template>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col pr-2 pl-2 font-weight-light\">\n        {{ device.Data }}\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -202,6 +202,9 @@ var DeviceComponent = /** @class */ (function () {
     };
     DeviceComponent.prototype.handleFocusOutName = function (event) {
         this.deviceService.updateName(this.device, event.target.value).subscribe();
+    };
+    DeviceComponent.prototype.handleFocusOutDescription = function (event) {
+        this.deviceService.updateDescription(this.device, event.target.value).subscribe();
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -559,6 +562,25 @@ var DeviceService = /** @class */ (function () {
             .set('type', 'setused')
             .append('idx', device.idx)
             .append('name', newName)
+            .append('used', 'true');
+        return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].apiUrl, { params: params, observe: 'response' })
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (response) {
+            if (response.body.status === 'OK') {
+                _this.getDevices().subscribe();
+            }
+            else {
+                _this.notificationService.sendNotificationTemp(response.body.status + ': ' + response.body.title, 'danger');
+            }
+            return response.body;
+        }));
+    };
+    DeviceService.prototype.updateDescription = function (device, newDescription) {
+        var _this = this;
+        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]()
+            .set('description', newDescription)
+            .append('idx', device.idx)
+            .append('name', device.Name)
+            .append('type', 'setused')
             .append('used', 'true');
         return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].apiUrl, { params: params, observe: 'response' })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (response) {

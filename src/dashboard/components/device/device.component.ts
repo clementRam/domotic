@@ -33,4 +33,8 @@ export class DeviceComponent implements OnInit {
     this.deviceService.updateName(this.device, event.target.value).subscribe();
   }
 
+  handleFocusOutDescription(event: any): void {
+    this.deviceService.updateDescription(this.device, event.target.value).subscribe();
+  }
+
 }

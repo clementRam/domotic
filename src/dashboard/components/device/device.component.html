@@ -7,11 +7,21 @@
     </div>
     <div class="row mt-2">
       <div class="col pr-2 pl-2 device-name">
+        <span *ngIf="!devicesEditable; else editDescription" class="">
+          {{ device.Description }}
+        </span>
+        <ng-template #editDescription>
+          <input type="text" class="form-control" value="{{device.Description}}" (focusout)="handleFocusOutDescription($event)">
+        </ng-template>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col pr-2 pl-2 device-name">
         <span *ngIf="!devicesEditable; else editName" class="">
           {{ device.Name }}
         </span>
         <ng-template #editName>
-          <input type="text" class="form-control" value="{{device.Name}}" (focusout)="handleFocusOutName($event)">
+            <input id="deviceName" type="text" class="form-control" value="{{device.Name}}" (focusout)="handleFocusOutName($event)">
         </ng-template>
       </div>
     </div>
