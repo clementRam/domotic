@@ -95,10 +95,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _http_interceptor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../http-interceptor */ "./src/http-interceptor/index.ts");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var src_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/shared/shared.module */ "./src/shared/shared.module.ts");
-/* harmony import */ var src_dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/dashboard/dashboard.module */ "./src/dashboard/dashboard.module.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _routes_routes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../routes/routes */ "./src/routes/routes.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _routes_routes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../routes/routes */ "./src/routes/routes.ts");
+/* harmony import */ var _dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dashboard/dashboard.module */ "./src/app/dashboard/dashboard.module.ts");
+/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./shared/shared.module */ "./src/app/shared/shared.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -123,9 +123,9 @@ var AppModule = /** @class */ (function () {
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forRoot(_routes_routes__WEBPACK_IMPORTED_MODULE_7__["appRoutes"]),
-                src_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"],
-                src_dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_5__["DashboardModule"]
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(_routes_routes__WEBPACK_IMPORTED_MODULE_5__["appRoutes"]),
+                _shared_shared_module__WEBPACK_IMPORTED_MODULE_7__["SharedModule"],
+                _dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_6__["DashboardModule"]
             ],
             providers: [_http_interceptor__WEBPACK_IMPORTED_MODULE_2__["httpInterceptorProviders"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
@@ -138,10 +138,10 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/dashboard/components/device/device.component.html":
-/*!***************************************************************!*\
-  !*** ./src/dashboard/components/device/device.component.html ***!
-  \***************************************************************/
+/***/ "./src/app/dashboard/components/device/device.component.html":
+/*!*******************************************************************!*\
+  !*** ./src/app/dashboard/components/device/device.component.html ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -149,10 +149,10 @@ module.exports = "<div class=\"card\" [class.off]=\"device.SubType === 'Switch' 
 
 /***/ }),
 
-/***/ "./src/dashboard/components/device/device.component.scss":
-/*!***************************************************************!*\
-  !*** ./src/dashboard/components/device/device.component.scss ***!
-  \***************************************************************/
+/***/ "./src/app/dashboard/components/device/device.component.scss":
+/*!*******************************************************************!*\
+  !*** ./src/app/dashboard/components/device/device.component.scss ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -160,10 +160,10 @@ module.exports = "div.card {\n  cursor: pointer;\n  border-radius: 10px; }\n  di
 
 /***/ }),
 
-/***/ "./src/dashboard/components/device/device.component.ts":
-/*!*************************************************************!*\
-  !*** ./src/dashboard/components/device/device.component.ts ***!
-  \*************************************************************/
+/***/ "./src/app/dashboard/components/device/device.component.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/dashboard/components/device/device.component.ts ***!
+  \*****************************************************************/
 /*! exports provided: DeviceComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -171,8 +171,8 @@ module.exports = "div.card {\n  cursor: pointer;\n  border-radius: 10px; }\n  di
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeviceComponent", function() { return DeviceComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var src_dashboard_services_device_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/dashboard/services/device.service */ "./src/dashboard/services/device.service.ts");
-/* harmony import */ var src_store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/store/store */ "./src/store/store.ts");
+/* harmony import */ var src_store_store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/store/store */ "./src/store/store.ts");
+/* harmony import */ var _services_device_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/device.service */ "./src/app/dashboard/services/device.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -193,7 +193,7 @@ var DeviceComponent = /** @class */ (function () {
     DeviceComponent.prototype.ngOnInit = function () {
         var _this = this;
         console.log(this.device);
-        this.store.select(src_store_store__WEBPACK_IMPORTED_MODULE_2__["DefaultStoreDataNames"].DEVICES_EDITABLE)
+        this.store.select(src_store_store__WEBPACK_IMPORTED_MODULE_1__["DefaultStoreDataNames"].DEVICES_EDITABLE)
             .subscribe(function (devicesEditable) { return _this.devicesEditable = devicesEditable; });
     };
     DeviceComponent.prototype.handleClick = function () {
@@ -213,10 +213,10 @@ var DeviceComponent = /** @class */ (function () {
     DeviceComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-device',
-            template: __webpack_require__(/*! ./device.component.html */ "./src/dashboard/components/device/device.component.html"),
-            styles: [__webpack_require__(/*! ./device.component.scss */ "./src/dashboard/components/device/device.component.scss")]
+            template: __webpack_require__(/*! ./device.component.html */ "./src/app/dashboard/components/device/device.component.html"),
+            styles: [__webpack_require__(/*! ./device.component.scss */ "./src/app/dashboard/components/device/device.component.scss")]
         }),
-        __metadata("design:paramtypes", [src_dashboard_services_device_service__WEBPACK_IMPORTED_MODULE_1__["DeviceService"], src_store_store__WEBPACK_IMPORTED_MODULE_2__["Store"]])
+        __metadata("design:paramtypes", [_services_device_service__WEBPACK_IMPORTED_MODULE_2__["DeviceService"], src_store_store__WEBPACK_IMPORTED_MODULE_1__["Store"]])
     ], DeviceComponent);
     return DeviceComponent;
 }());
@@ -225,10 +225,10 @@ var DeviceComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/dashboard/components/devices/devices.component.html":
-/*!*****************************************************************!*\
-  !*** ./src/dashboard/components/devices/devices.component.html ***!
-  \*****************************************************************/
+/***/ "./src/app/dashboard/components/devices/devices.component.html":
+/*!*********************************************************************!*\
+  !*** ./src/app/dashboard/components/devices/devices.component.html ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -236,10 +236,10 @@ module.exports = "<div *ngIf=\"devices$ | async; let devices\" class=\"row pr-2 
 
 /***/ }),
 
-/***/ "./src/dashboard/components/devices/devices.component.scss":
-/*!*****************************************************************!*\
-  !*** ./src/dashboard/components/devices/devices.component.scss ***!
-  \*****************************************************************/
+/***/ "./src/app/dashboard/components/devices/devices.component.scss":
+/*!*********************************************************************!*\
+  !*** ./src/app/dashboard/components/devices/devices.component.scss ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -247,10 +247,10 @@ module.exports = ""
 
 /***/ }),
 
-/***/ "./src/dashboard/components/devices/devices.component.ts":
-/*!***************************************************************!*\
-  !*** ./src/dashboard/components/devices/devices.component.ts ***!
-  \***************************************************************/
+/***/ "./src/app/dashboard/components/devices/devices.component.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/dashboard/components/devices/devices.component.ts ***!
+  \*******************************************************************/
 /*! exports provided: DevicesComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -280,8 +280,8 @@ var DevicesComponent = /** @class */ (function () {
     DevicesComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-devices',
-            template: __webpack_require__(/*! ./devices.component.html */ "./src/dashboard/components/devices/devices.component.html"),
-            styles: [__webpack_require__(/*! ./devices.component.scss */ "./src/dashboard/components/devices/devices.component.scss")]
+            template: __webpack_require__(/*! ./devices.component.html */ "./src/app/dashboard/components/devices/devices.component.html"),
+            styles: [__webpack_require__(/*! ./devices.component.scss */ "./src/app/dashboard/components/devices/devices.component.scss")]
         }),
         __metadata("design:paramtypes", [src_store_store__WEBPACK_IMPORTED_MODULE_1__["Store"]])
     ], DevicesComponent);
@@ -292,10 +292,10 @@ var DevicesComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/dashboard/components/settings/settings.component.html":
-/*!*******************************************************************!*\
-  !*** ./src/dashboard/components/settings/settings.component.html ***!
-  \*******************************************************************/
+/***/ "./src/app/dashboard/components/settings/settings.component.html":
+/*!***********************************************************************!*\
+  !*** ./src/app/dashboard/components/settings/settings.component.html ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -303,10 +303,10 @@ module.exports = "<div class=\"settings\">\n    <a *ngIf=\"!(devicesEditable$ | 
 
 /***/ }),
 
-/***/ "./src/dashboard/components/settings/settings.component.scss":
-/*!*******************************************************************!*\
-  !*** ./src/dashboard/components/settings/settings.component.scss ***!
-  \*******************************************************************/
+/***/ "./src/app/dashboard/components/settings/settings.component.scss":
+/*!***********************************************************************!*\
+  !*** ./src/app/dashboard/components/settings/settings.component.scss ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -314,10 +314,10 @@ module.exports = "div.settings {\n  position: absolute;\n  right: 10px;\n  top: 
 
 /***/ }),
 
-/***/ "./src/dashboard/components/settings/settings.component.ts":
-/*!*****************************************************************!*\
-  !*** ./src/dashboard/components/settings/settings.component.ts ***!
-  \*****************************************************************/
+/***/ "./src/app/dashboard/components/settings/settings.component.ts":
+/*!*********************************************************************!*\
+  !*** ./src/app/dashboard/components/settings/settings.component.ts ***!
+  \*********************************************************************/
 /*! exports provided: SettingsComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -353,8 +353,8 @@ var SettingsComponent = /** @class */ (function () {
     SettingsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-settings',
-            template: __webpack_require__(/*! ./settings.component.html */ "./src/dashboard/components/settings/settings.component.html"),
-            styles: [__webpack_require__(/*! ./settings.component.scss */ "./src/dashboard/components/settings/settings.component.scss")]
+            template: __webpack_require__(/*! ./settings.component.html */ "./src/app/dashboard/components/settings/settings.component.html"),
+            styles: [__webpack_require__(/*! ./settings.component.scss */ "./src/app/dashboard/components/settings/settings.component.scss")]
         }),
         __metadata("design:paramtypes", [src_store_store__WEBPACK_IMPORTED_MODULE_1__["Store"]])
     ], SettingsComponent);
@@ -365,10 +365,10 @@ var SettingsComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/dashboard/container/dashboard-view/dashboard-view.component.html":
-/*!******************************************************************************!*\
-  !*** ./src/dashboard/container/dashboard-view/dashboard-view.component.html ***!
-  \******************************************************************************/
+/***/ "./src/app/dashboard/container/dashboard-view/dashboard-view.component.html":
+/*!**********************************************************************************!*\
+  !*** ./src/app/dashboard/container/dashboard-view/dashboard-view.component.html ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -376,10 +376,10 @@ module.exports = "<app-settings></app-settings>\n<app-devices></app-devices>"
 
 /***/ }),
 
-/***/ "./src/dashboard/container/dashboard-view/dashboard-view.component.scss":
-/*!******************************************************************************!*\
-  !*** ./src/dashboard/container/dashboard-view/dashboard-view.component.scss ***!
-  \******************************************************************************/
+/***/ "./src/app/dashboard/container/dashboard-view/dashboard-view.component.scss":
+/*!**********************************************************************************!*\
+  !*** ./src/app/dashboard/container/dashboard-view/dashboard-view.component.scss ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -387,10 +387,10 @@ module.exports = ""
 
 /***/ }),
 
-/***/ "./src/dashboard/container/dashboard-view/dashboard-view.component.ts":
-/*!****************************************************************************!*\
-  !*** ./src/dashboard/container/dashboard-view/dashboard-view.component.ts ***!
-  \****************************************************************************/
+/***/ "./src/app/dashboard/container/dashboard-view/dashboard-view.component.ts":
+/*!********************************************************************************!*\
+  !*** ./src/app/dashboard/container/dashboard-view/dashboard-view.component.ts ***!
+  \********************************************************************************/
 /*! exports provided: DashboardViewComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -398,7 +398,7 @@ module.exports = ""
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardViewComponent", function() { return DashboardViewComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var src_dashboard_services_device_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/dashboard/services/device.service */ "./src/dashboard/services/device.service.ts");
+/* harmony import */ var _services_device_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/device.service */ "./src/app/dashboard/services/device.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -420,10 +420,10 @@ var DashboardViewComponent = /** @class */ (function () {
     DashboardViewComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-dashboard-view',
-            template: __webpack_require__(/*! ./dashboard-view.component.html */ "./src/dashboard/container/dashboard-view/dashboard-view.component.html"),
-            styles: [__webpack_require__(/*! ./dashboard-view.component.scss */ "./src/dashboard/container/dashboard-view/dashboard-view.component.scss")]
+            template: __webpack_require__(/*! ./dashboard-view.component.html */ "./src/app/dashboard/container/dashboard-view/dashboard-view.component.html"),
+            styles: [__webpack_require__(/*! ./dashboard-view.component.scss */ "./src/app/dashboard/container/dashboard-view/dashboard-view.component.scss")]
         }),
-        __metadata("design:paramtypes", [src_dashboard_services_device_service__WEBPACK_IMPORTED_MODULE_1__["DeviceService"]])
+        __metadata("design:paramtypes", [_services_device_service__WEBPACK_IMPORTED_MODULE_1__["DeviceService"]])
     ], DashboardViewComponent);
     return DashboardViewComponent;
 }());
@@ -432,10 +432,10 @@ var DashboardViewComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/dashboard/dashboard.module.ts":
-/*!*******************************************!*\
-  !*** ./src/dashboard/dashboard.module.ts ***!
-  \*******************************************/
+/***/ "./src/app/dashboard/dashboard.module.ts":
+/*!***********************************************!*\
+  !*** ./src/app/dashboard/dashboard.module.ts ***!
+  \***********************************************/
 /*! exports provided: DashboardModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -444,11 +444,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardModule", function() { return DashboardModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _container_dashboard_view_dashboard_view_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./container/dashboard-view/dashboard-view.component */ "./src/dashboard/container/dashboard-view/dashboard-view.component.ts");
-/* harmony import */ var _components_devices_devices_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/devices/devices.component */ "./src/dashboard/components/devices/devices.component.ts");
-/* harmony import */ var _components_device_device_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/device/device.component */ "./src/dashboard/components/device/device.component.ts");
+/* harmony import */ var _container_dashboard_view_dashboard_view_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./container/dashboard-view/dashboard-view.component */ "./src/app/dashboard/container/dashboard-view/dashboard-view.component.ts");
+/* harmony import */ var _components_devices_devices_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/devices/devices.component */ "./src/app/dashboard/components/devices/devices.component.ts");
+/* harmony import */ var _components_device_device_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/device/device.component */ "./src/app/dashboard/components/device/device.component.ts");
 /* harmony import */ var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/cdk/drag-drop */ "./node_modules/@angular/cdk/esm5/drag-drop.es5.js");
-/* harmony import */ var _components_settings_settings_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/settings/settings.component */ "./src/dashboard/components/settings/settings.component.ts");
+/* harmony import */ var _components_settings_settings_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/settings/settings.component */ "./src/app/dashboard/components/settings/settings.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -481,10 +481,10 @@ var DashboardModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/dashboard/services/device.service.ts":
-/*!**************************************************!*\
-  !*** ./src/dashboard/services/device.service.ts ***!
-  \**************************************************/
+/***/ "./src/app/dashboard/services/device.service.ts":
+/*!******************************************************!*\
+  !*** ./src/app/dashboard/services/device.service.ts ***!
+  \******************************************************/
 /*! exports provided: DeviceService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -496,7 +496,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
 /* harmony import */ var src_store_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/store/store */ "./src/store/store.ts");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var src_shared_services_notification_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/shared/services/notification.service */ "./src/shared/services/notification.service.ts");
+/* harmony import */ var src_app_shared_services_notification_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/notification.service */ "./src/app/shared/services/notification.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -526,10 +526,11 @@ var DeviceService = /** @class */ (function () {
             .append('filter', 'all')
             .append('used', 'true');
         return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].apiUrl, {
-            params: params
-        }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (devices) {
-            _this.store.set(src_store_store__WEBPACK_IMPORTED_MODULE_3__["DefaultStoreDataNames"].DEVICES, devices);
-            return devices;
+            params: params,
+            observe: 'response'
+        }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (response) {
+            _this.store.set(src_store_store__WEBPACK_IMPORTED_MODULE_3__["DefaultStoreDataNames"].DEVICES, response.body);
+            return response.body;
         }));
     };
     DeviceService.prototype.getDevice = function (idx) {
@@ -600,9 +601,205 @@ var DeviceService = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], src_store_store__WEBPACK_IMPORTED_MODULE_3__["Store"], src_shared_services_notification_service__WEBPACK_IMPORTED_MODULE_5__["NotificationService"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], src_store_store__WEBPACK_IMPORTED_MODULE_3__["Store"], src_app_shared_services_notification_service__WEBPACK_IMPORTED_MODULE_5__["NotificationService"]])
     ], DeviceService);
     return DeviceService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/models/notification.model.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/shared/models/notification.model.ts ***!
+  \*****************************************************/
+/*! exports provided: Notification */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Notification", function() { return Notification; });
+var Notification = /** @class */ (function () {
+    function Notification(message, type) {
+        this.message = message;
+        this.type = type;
+        this.displayed = true;
+    }
+    return Notification;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/notification/notification.component.html":
+/*!*****************************************************************!*\
+  !*** ./src/app/shared/notification/notification.component.html ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf=\"notification?.displayed\" class=\"notification alert fixed-bottom m-4 alert-{{notification?.type}}\"\n  role=\"alert\">\n  <div class=\"container\">\n    {{notification?.message}}\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/shared/notification/notification.component.scss":
+/*!*****************************************************************!*\
+  !*** ./src/app/shared/notification/notification.component.scss ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".notification {\n  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2); }\n"
+
+/***/ }),
+
+/***/ "./src/app/shared/notification/notification.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/shared/notification/notification.component.ts ***!
+  \***************************************************************/
+/*! exports provided: NotificationComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotificationComponent", function() { return NotificationComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_notification_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/notification.service */ "./src/app/shared/services/notification.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var NotificationComponent = /** @class */ (function () {
+    function NotificationComponent(notificationService) {
+        this.notificationService = notificationService;
+    }
+    NotificationComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.notificationService.notificationSubject.subscribe(function (notification) { return _this.notification = notification; });
+    };
+    NotificationComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-notification',
+            template: __webpack_require__(/*! ./notification.component.html */ "./src/app/shared/notification/notification.component.html"),
+            styles: [__webpack_require__(/*! ./notification.component.scss */ "./src/app/shared/notification/notification.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_services_notification_service__WEBPACK_IMPORTED_MODULE_1__["NotificationService"]])
+    ], NotificationComponent);
+    return NotificationComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/services/notification.service.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/shared/services/notification.service.ts ***!
+  \*********************************************************/
+/*! exports provided: NotificationService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotificationService", function() { return NotificationService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _models_notification_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../models/notification.model */ "./src/app/shared/models/notification.model.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var NotificationService = /** @class */ (function () {
+    function NotificationService() {
+        this.notificationSubject = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
+    }
+    NotificationService.prototype.sendNotificationTemp = function (message, type) {
+        var _this = this;
+        this.notification = new _models_notification_model__WEBPACK_IMPORTED_MODULE_2__["Notification"](message, type);
+        this.emitNotificationSubject();
+        setTimeout(function () {
+            _this.notification.displayed = false;
+        }, 4000);
+    };
+    NotificationService.prototype.emitNotificationSubject = function () {
+        this.notificationSubject.next(this.notification);
+    };
+    NotificationService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], NotificationService);
+    return NotificationService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/shared.module.ts":
+/*!*****************************************!*\
+  !*** ./src/app/shared/shared.module.ts ***!
+  \*****************************************/
+/*! exports provided: SharedModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SharedModule", function() { return SharedModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _notification_notification_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./notification/notification.component */ "./src/app/shared/notification/notification.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var src_store_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/store/store */ "./src/store/store.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+var SharedModule = /** @class */ (function () {
+    function SharedModule() {
+    }
+    SharedModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"]
+            ],
+            providers: [
+                src_store_store__WEBPACK_IMPORTED_MODULE_4__["Store"]
+            ],
+            declarations: [_notification_notification_component__WEBPACK_IMPORTED_MODULE_2__["NotificationComponent"]],
+            exports: [
+                _notification_notification_component__WEBPACK_IMPORTED_MODULE_2__["NotificationComponent"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"]
+            ]
+        })
+    ], SharedModule);
+    return SharedModule;
 }());
 
 
@@ -672,7 +869,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var src_shared_services_notification_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/shared/services/notification.service */ "./src/shared/services/notification.service.ts");
+/* harmony import */ var src_app_shared_services_notification_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/notification.service */ "./src/app/shared/services/notification.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -700,6 +897,9 @@ var NoopInterceptor = /** @class */ (function () {
             else if (error.error && error.error.message) {
                 _this.notificationService.sendNotificationTemp("Error " + error.status + ": " + error.error.message, "danger");
             }
+            else if (error.error instanceof ProgressEvent) {
+                _this.notificationService.sendNotificationTemp("Error " + error.status + ": " + error.message, "danger");
+            }
             else {
                 _this.notificationService.sendNotificationTemp("Error " + error.status + ": " + error.error, "danger");
             }
@@ -708,7 +908,7 @@ var NoopInterceptor = /** @class */ (function () {
     };
     NoopInterceptor = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [src_shared_services_notification_service__WEBPACK_IMPORTED_MODULE_3__["NotificationService"]])
+        __metadata("design:paramtypes", [src_app_shared_services_notification_service__WEBPACK_IMPORTED_MODULE_3__["NotificationService"]])
     ], NoopInterceptor);
     return NoopInterceptor;
 }());
@@ -753,208 +953,12 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appRoutes", function() { return appRoutes; });
-/* harmony import */ var src_dashboard_container_dashboard_view_dashboard_view_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/dashboard/container/dashboard-view/dashboard-view.component */ "./src/dashboard/container/dashboard-view/dashboard-view.component.ts");
+/* harmony import */ var src_app_dashboard_container_dashboard_view_dashboard_view_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/app/dashboard/container/dashboard-view/dashboard-view.component */ "./src/app/dashboard/container/dashboard-view/dashboard-view.component.ts");
 
 var appRoutes = [
-    { path: "", component: src_dashboard_container_dashboard_view_dashboard_view_component__WEBPACK_IMPORTED_MODULE_0__["DashboardViewComponent"] },
+    { path: "", component: src_app_dashboard_container_dashboard_view_dashboard_view_component__WEBPACK_IMPORTED_MODULE_0__["DashboardViewComponent"] },
     { path: "**", redirectTo: "" }
 ];
-
-
-/***/ }),
-
-/***/ "./src/shared/models/notification.model.ts":
-/*!*************************************************!*\
-  !*** ./src/shared/models/notification.model.ts ***!
-  \*************************************************/
-/*! exports provided: Notification */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Notification", function() { return Notification; });
-var Notification = /** @class */ (function () {
-    function Notification(message, type) {
-        this.message = message;
-        this.type = type;
-        this.displayed = true;
-    }
-    return Notification;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/shared/notification/notification.component.html":
-/*!*************************************************************!*\
-  !*** ./src/shared/notification/notification.component.html ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div *ngIf=\"notification?.displayed\" class=\"notification alert fixed-bottom m-4 alert-{{notification?.type}}\"\n  role=\"alert\">\n  <div class=\"container\">\n    {{notification?.message}}\n  </div>\n</div>"
-
-/***/ }),
-
-/***/ "./src/shared/notification/notification.component.scss":
-/*!*************************************************************!*\
-  !*** ./src/shared/notification/notification.component.scss ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ".notification {\n  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2); }\n"
-
-/***/ }),
-
-/***/ "./src/shared/notification/notification.component.ts":
-/*!***********************************************************!*\
-  !*** ./src/shared/notification/notification.component.ts ***!
-  \***********************************************************/
-/*! exports provided: NotificationComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotificationComponent", function() { return NotificationComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_notification_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/notification.service */ "./src/shared/services/notification.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var NotificationComponent = /** @class */ (function () {
-    function NotificationComponent(notificationService) {
-        this.notificationService = notificationService;
-    }
-    NotificationComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.notificationService.notificationSubject.subscribe(function (notification) { return _this.notification = notification; });
-    };
-    NotificationComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-notification',
-            template: __webpack_require__(/*! ./notification.component.html */ "./src/shared/notification/notification.component.html"),
-            styles: [__webpack_require__(/*! ./notification.component.scss */ "./src/shared/notification/notification.component.scss")]
-        }),
-        __metadata("design:paramtypes", [_services_notification_service__WEBPACK_IMPORTED_MODULE_1__["NotificationService"]])
-    ], NotificationComponent);
-    return NotificationComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/shared/services/notification.service.ts":
-/*!*****************************************************!*\
-  !*** ./src/shared/services/notification.service.ts ***!
-  \*****************************************************/
-/*! exports provided: NotificationService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotificationService", function() { return NotificationService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var src_shared_models_notification_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/shared/models/notification.model */ "./src/shared/models/notification.model.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var NotificationService = /** @class */ (function () {
-    function NotificationService() {
-        this.notificationSubject = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
-    }
-    NotificationService.prototype.sendNotificationTemp = function (message, type) {
-        var _this = this;
-        this.notification = new src_shared_models_notification_model__WEBPACK_IMPORTED_MODULE_2__["Notification"](message, type);
-        this.emitNotificationSubject();
-        setTimeout(function () {
-            _this.notification.displayed = false;
-        }, 4000);
-    };
-    NotificationService.prototype.emitNotificationSubject = function () {
-        this.notificationSubject.next(this.notification);
-    };
-    NotificationService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
-            providedIn: 'root'
-        }),
-        __metadata("design:paramtypes", [])
-    ], NotificationService);
-    return NotificationService;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/shared/shared.module.ts":
-/*!*************************************!*\
-  !*** ./src/shared/shared.module.ts ***!
-  \*************************************/
-/*! exports provided: SharedModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SharedModule", function() { return SharedModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _notification_notification_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./notification/notification.component */ "./src/shared/notification/notification.component.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var src_store_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/store/store */ "./src/store/store.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-var SharedModule = /** @class */ (function () {
-    function SharedModule() {
-    }
-    SharedModule = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-            imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"]
-            ],
-            providers: [
-                src_store_store__WEBPACK_IMPORTED_MODULE_4__["Store"]
-            ],
-            declarations: [_notification_notification_component__WEBPACK_IMPORTED_MODULE_2__["NotificationComponent"]],
-            exports: [
-                _notification_notification_component__WEBPACK_IMPORTED_MODULE_2__["NotificationComponent"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"]
-            ]
-        })
-    ], SharedModule);
-    return SharedModule;
-}());
-
 
 
 /***/ }),
