@@ -25,10 +25,11 @@ export class DeviceService {
     .append('used', 'true');
 
     return this.http.get<Devices>(environment.apiUrl, {
-      params: params
-    }).pipe(map(devices => {
-      this.store.set(DefaultStoreDataNames.DEVICES, devices)
-      return devices;
+      params: params,
+      observe: 'response'
+    }).pipe(map(response => {
+      this.store.set(DefaultStoreDataNames.DEVICES, response.body)
+      return response.body;
     })
     ) as Observable<Devices>
   }

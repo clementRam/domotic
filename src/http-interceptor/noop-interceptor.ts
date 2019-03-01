@@ -24,6 +24,11 @@ export class NoopInterceptor implements HttpInterceptor {
           `Error ${error.status}: ${error.error.message}`,
           "danger"
         );
+      } else if( error.error instanceof ProgressEvent) {
+        this.notificationService.sendNotificationTemp(
+          `Error ${error.status}: ${error.message}`,
+          "danger"
+        );
       } else {
         this.notificationService.sendNotificationTemp(
           `Error ${error.status}: ${error.error}`,
