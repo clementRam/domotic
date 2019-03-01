@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DeviceService } from 'src/dashboard/services/device.service';
+import { DeviceService } from '../../services/device.service';
 
 @Component({
   selector: 'app-dashboard-view',

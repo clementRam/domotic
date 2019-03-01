@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Devices } from 'src/dashboard/models/devices.model';
 import { Store, DefaultStoreDataNames } from 'src/store/store';
+import { Devices } from '../../models/devices.model';
 
 @Component({
   selector: 'app-devices',

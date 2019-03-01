@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from "@angular/common/http";
 import { Observable, of } from "rxjs";
 import { catchError } from "rxjs/operators";
-import { NotificationService } from "src/shared/services/notification.service";
+import { NotificationService } from "src/app/shared/services/notification.service";
 
 @Injectable()
 export class NoopInterceptor implements HttpInterceptor {

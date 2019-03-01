@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Device } from 'src/dashboard/models/device.model';
-import { DeviceService } from 'src/dashboard/services/device.service';
 import { Store, DefaultStoreDataNames } from 'src/store/store';
-import { Observable } from 'rxjs';
+import { DeviceService } from '../../services/device.service';
+import { Device } from '../../models/device.model';
 
 @Component({
   selector: 'app-device',

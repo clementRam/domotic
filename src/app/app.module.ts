@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { httpInterceptorProviders } from "./../http-interceptor";
 
 import { AppComponent } from './app.component';
-import { SharedModule } from 'src/shared/shared.module';
-import { DashboardModule } from 'src/dashboard/dashboard.module';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from '../routes/routes';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [

@@ -1,4 +1,4 @@
-import { Devices } from "src/dashboard/models/devices.model";
+import { Devices } from "src/app/dashboard/models/devices.model";
 
 export interface State {
     devices: Devices;

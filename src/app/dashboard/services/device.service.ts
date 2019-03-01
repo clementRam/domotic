@@ -7,7 +7,7 @@ import { Devices } from '../models/devices.model';
 import { DefaultStoreDataNames, Store } from 'src/store/store';
 import { map } from 'rxjs/operators';
 import { ActionResponse } from '../models/actionResponse.model';
-import { NotificationService } from 'src/shared/services/notification.service';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 
 @Injectable({
   providedIn: 'root'
