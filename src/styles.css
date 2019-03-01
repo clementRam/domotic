@@ -7,3 +7,9 @@ body{
     background-position-x: center;
     background-attachment: fixed;
 }
+
+@media screen and (min-width: 976px) {
+    body{
+        background-size: 100% 100%;
+    }
+}
