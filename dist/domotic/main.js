@@ -156,7 +156,7 @@ module.exports = "<div class=\"card\" [class.off]=\"device.SubType === 'Switch' 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "div.card {\n  cursor: pointer;\n  border-radius: 10px; }\n  div.card.off {\n    background-color: rgba(255, 255, 255, 0.6); }\n  div.card img.device-img {\n    height: 30px; }\n  div.card .form-control {\n    background-image: linear-gradient(0deg, #3f51b5 2px, rgba(63, 81, 181, 0) 0), linear-gradient(0deg, rgba(0, 0, 0, 0.26) 1px, transparent 0);\n    font-size: .875rem; }\n  div.card .form-control:focus {\n      box-shadow: none; }\n  div.card .device-name {\n    text-overflow: ellipsis; }\n"
+module.exports = "div.card {\n  cursor: pointer;\n  border-radius: 10px; }\n  div.card.off {\n    background-color: rgba(255, 255, 255, 0.6); }\n  div.card img.device-img {\n    height: 30px; }\n  div.card .form-control {\n    background-image: linear-gradient(0deg, #3f51b5 2px, rgba(63, 81, 181, 0) 0), linear-gradient(0deg, rgba(0, 0, 0, 0.26) 1px, transparent 0);\n    font-size: .875rem; }\n  div.card .form-control:focus {\n      box-shadow: none; }\n  div.card input[type=\"text\"] {\n    height: 20.8px; }\n  div.card .device-name {\n    text-overflow: ellipsis; }\n"
 
 /***/ }),
 
@@ -563,6 +563,7 @@ var DeviceService = /** @class */ (function () {
             .set('type', 'setused')
             .append('idx', device.idx)
             .append('name', newName)
+            .append('description', device.Description)
             .append('used', 'true');
         return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].apiUrl, { params: params, observe: 'response' })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (response) {

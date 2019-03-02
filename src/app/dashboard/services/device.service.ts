@@ -65,6 +65,7 @@ export class DeviceService {
     .set('type', 'setused')
     .append('idx', device.idx)
     .append('name', newName)
+    .append('description', device.Description)
     .append('used', 'true');
 
     return this.http.get<ActionResponse>(environment.apiUrl, {params: params, observe: 'response'})
