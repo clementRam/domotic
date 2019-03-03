@@ -4,6 +4,6 @@ import { AutomatisationViewComponent } from "src/app/automatisation/container/au
 
 export const appRoutes: Routes = [
   { path: "", component: DashboardViewComponent },
-  { path: "automatisation", component: AutomatisationViewComponent },
-  { path: "**", component: DashboardViewComponent}
+  // { path: "automatisation", component: AutomatisationViewComponent },
+  { path: "**", redirectTo: ""}
 ];
