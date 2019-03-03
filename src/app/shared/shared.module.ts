@@ -4,11 +4,13 @@ import { NotificationComponent } from './notification/notification.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Store } from 'src/store/store';
 import { TranslatePipe } from './pipes/translate.pipe';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [
     Store
@@ -20,7 +22,8 @@ import { TranslatePipe } from './pipes/translate.pipe';
   exports: [
     TranslatePipe,
     NotificationComponent,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ]
 })
 export class SharedModule { }

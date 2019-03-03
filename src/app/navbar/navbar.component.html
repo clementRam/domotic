@@ -1,14 +1,18 @@
 <nav class="navbar fixed-bottom navbar-light">
-  <div class="col text-center text-light">
-    <img class="logo" src="./src/assets/svg/home-solid.svg" alt="Dashboard logo">
-    <div class="text-logo">
-      {{'dashboard' | translate}}
-    </div>
+  <div class="col text-center">
+    <a [routerLink]="['/dashboard']" routerLinkActive="active">
+      <fa-icon [icon]="faHome"></fa-icon>
+      <div class="text-logo">
+        {{'dashboard' | translate}}
+      </div>
+    </a>
   </div>
-  <div class="col text-center text-light">
-    <img class="logo" src="./src/assets/svg/clock-regular.svg" alt="Automatisation logo">
-    <div class="text-logo">
-      {{'scenario' | translate}}
-    </div>
+  <div class="col text-center">
+    <a [routerLink]="['/automatisation']" routerLinkActive="active">
+      <fa-icon [icon]="faClock"></fa-icon>
+      <div class="text-logo">
+        {{'automatisation' | translate}}
+      </div>
+    </a>
   </div>
 </nav>

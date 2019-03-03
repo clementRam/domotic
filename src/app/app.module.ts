@@ -8,6 +8,7 @@ import { appRoutes } from '../routes/routes';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { SharedModule } from './shared/shared.module';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AutomatisationModule } from './automatisation/automatisation.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     SharedModule,
-    DashboardModule
+    DashboardModule,
+    AutomatisationModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

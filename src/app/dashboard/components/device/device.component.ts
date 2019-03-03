@@ -18,7 +18,6 @@ export class DeviceComponent implements OnInit {
   constructor(private deviceService: DeviceService, private store: Store) { }
 
   ngOnInit() {
-    console.log(this.device)
     this.store.select<boolean>(DefaultStoreDataNames.DEVICES_EDITABLE)
     .subscribe(devicesEditable => this.devicesEditable = devicesEditable);
   }
