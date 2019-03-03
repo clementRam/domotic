@@ -756,7 +756,7 @@ module.exports = "<nav class=\"navbar fixed-bottom navbar-light\">\n  <div class
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".navbar {\n  background-color: rgba(0, 0, 0, 0.5); }\n  .navbar div.col a {\n    color: #ccc; }\n  .navbar div.col a.active {\n      color: orange; }\n  .navbar div.col a.active .text-logo {\n        color: orange; }\n  .navbar div.col a:hover {\n      text-decoration: none; }\n  .navbar div.col a fa-icon {\n      font-size: 1.8rem; }\n  .navbar div.col a .text-logo {\n      font-size: 0.65rem;\n      color: #ccc; }\n  @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {\n  .navbar {\n    padding-bottom: 50px; } }\n"
+module.exports = ".navbar {\n  background-color: rgba(0, 0, 0, 0.5); }\n  .navbar div.col a {\n    color: #ccc; }\n  .navbar div.col a.active {\n      color: orange; }\n  .navbar div.col a.active .text-logo {\n        color: orange; }\n  .navbar div.col a:hover {\n      text-decoration: none; }\n  .navbar div.col a fa-icon {\n      font-size: 1.8rem; }\n  .navbar div.col a .text-logo {\n      font-size: 0.65rem;\n      color: #ccc; }\n  @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {\n  .navbar {\n    padding-bottom: 40px; } }\n"
 
 /***/ }),
 
@@ -1266,11 +1266,13 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appRoutes", function() { return appRoutes; });
 /* harmony import */ var src_app_dashboard_container_dashboard_view_dashboard_view_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/app/dashboard/container/dashboard-view/dashboard-view.component */ "./src/app/dashboard/container/dashboard-view/dashboard-view.component.ts");
+/* harmony import */ var src_app_automatisation_container_automatisation_view_automatisation_view_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/automatisation/container/automatisation-view/automatisation-view.component */ "./src/app/automatisation/container/automatisation-view/automatisation-view.component.ts");
+
 
 var appRoutes = [
-    { path: "", component: src_app_dashboard_container_dashboard_view_dashboard_view_component__WEBPACK_IMPORTED_MODULE_0__["DashboardViewComponent"] },
-    // { path: "automatisation", component: AutomatisationViewComponent },
-    { path: "**", redirectTo: "" }
+    { path: "dashboard", component: src_app_dashboard_container_dashboard_view_dashboard_view_component__WEBPACK_IMPORTED_MODULE_0__["DashboardViewComponent"] },
+    { path: "automatisation", component: src_app_automatisation_container_automatisation_view_automatisation_view_component__WEBPACK_IMPORTED_MODULE_1__["AutomatisationViewComponent"] },
+    { path: "**", redirectTo: "dashboard" }
 ];
 
 
