@@ -756,7 +756,7 @@ module.exports = "<nav class=\"navbar fixed-bottom navbar-light\">\n  <div class
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".navbar {\n  background-color: rgba(0, 0, 0, 0.5); }\n  .navbar div.col a {\n    color: #ccc; }\n  .navbar div.col a.active {\n      color: orange; }\n  .navbar div.col a.active .text-logo {\n        color: orange; }\n  .navbar div.col a:hover {\n      text-decoration: none; }\n  .navbar div.col a fa-icon {\n      font-size: 1.8rem; }\n  .navbar div.col a .text-logo {\n      font-size: 0.65rem;\n      color: #ccc; }\n"
+module.exports = ".navbar {\n  background-color: rgba(0, 0, 0, 0.5); }\n  .navbar div.col a {\n    color: #ccc; }\n  .navbar div.col a.active {\n      color: orange; }\n  .navbar div.col a.active .text-logo {\n        color: orange; }\n  .navbar div.col a:hover {\n      text-decoration: none; }\n  .navbar div.col a fa-icon {\n      font-size: 1.8rem; }\n  .navbar div.col a .text-logo {\n      font-size: 0.65rem;\n      color: #ccc; }\n  @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {\n  .navbar {\n    padding-bottom: 50px; } }\n"
 
 /***/ }),
 
