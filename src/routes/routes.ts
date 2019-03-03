@@ -3,7 +3,7 @@ import { DashboardViewComponent } from "src/app/dashboard/container/dashboard-vi
 import { AutomatisationViewComponent } from "src/app/automatisation/container/automatisation-view/automatisation-view.component";
 
 export const appRoutes: Routes = [
-  { path: "dashboard", component: DashboardViewComponent },
+  { path: "", component: DashboardViewComponent },
   { path: "automatisation", component: AutomatisationViewComponent },
   { path: "**", component: DashboardViewComponent}
 ];

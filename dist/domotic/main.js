@@ -1034,7 +1034,7 @@ var TranslateService = /** @class */ (function () {
     TranslateService.prototype.use = function (lang) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.http.get('./src/assets/i18n/' + ((lang || 'fr') + ".json")).subscribe(function (translation) {
+            _this.http.get('../../../assets/i18n/' + ((lang || 'fr') + ".json")).subscribe(function (translation) {
                 _this.data = Object.assign({}, translation || {});
                 resolve(_this.data);
             }, function (error) {
@@ -1270,7 +1270,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var appRoutes = [
-    { path: "dashboard", component: src_app_dashboard_container_dashboard_view_dashboard_view_component__WEBPACK_IMPORTED_MODULE_0__["DashboardViewComponent"] },
+    { path: "", component: src_app_dashboard_container_dashboard_view_dashboard_view_component__WEBPACK_IMPORTED_MODULE_0__["DashboardViewComponent"] },
     { path: "automatisation", component: src_app_automatisation_container_automatisation_view_automatisation_view_component__WEBPACK_IMPORTED_MODULE_1__["AutomatisationViewComponent"] },
     { path: "**", component: src_app_dashboard_container_dashboard_view_dashboard_view_component__WEBPACK_IMPORTED_MODULE_0__["DashboardViewComponent"] }
 ];
