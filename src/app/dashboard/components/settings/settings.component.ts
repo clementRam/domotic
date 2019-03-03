@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, DefaultStoreDataNames } from 'src/store/store';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss']
 })
+
 export class SettingsComponent implements OnInit {
 
-  devicesEditable$: Observable<boolean>;
+  public addDeviceUrl = environment.apiUrl + '/#/Hardware';
+  public devicesEditable$: Observable<boolean>;
 
   constructor(private store: Store) { }
 
