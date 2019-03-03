@@ -89,7 +89,7 @@ module.exports = "/*!\n * Bootstrap v4.3.1 (https://getbootstrap.com/)\n * Copyr
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\r\nbody{\r\n    background-image: url('house.jpg');\r\n    background-repeat: no-repeat;\r\n    height: 100vh;\r\n    background-size: auto 100%;\r\n    background-position-x: center;\r\n    background-attachment: fixed;\r\n    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);\r\n}\r\n@media screen and (min-width: 976px) {\r\n    body{\r\n        background-size: 100% 100%;\r\n    }\r\n}"
+module.exports = "/* You can add global styles to this file, and also import other style files */\nbody{\n    background-image: url('house.jpg');\n    background-repeat: no-repeat;\n    height: 100vh;\n    background-size: auto 100%;\n    background-position-x: center;\n    background-attachment: fixed;\n    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);\n}\nsvg {\n    fill: currentColor;\n}\n@media screen and (min-width: 976px) {\n    body{\n        background-size: 100% 100%;\n    }\n}"
 
 /***/ }),
 
@@ -621,9 +621,9 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\clement.ramondou\Workspace\domotic\node_modules\bootstrap\dist\css\bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
-__webpack_require__(/*! C:\Users\clement.ramondou\Workspace\domotic\node_modules\bootstrap-material-design\dist\css\bootstrap-material-design.css */"./node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.css");
-module.exports = __webpack_require__(/*! C:\Users\clement.ramondou\Workspace\domotic\src\styles.css */"./src/styles.css");
+__webpack_require__(/*! /Users/clementramondou/Workspace/domotic/node_modules/bootstrap/dist/css/bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
+__webpack_require__(/*! /Users/clementramondou/Workspace/domotic/node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.css */"./node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.css");
+module.exports = __webpack_require__(/*! /Users/clementramondou/Workspace/domotic/src/styles.css */"./src/styles.css");
 
 
 /***/ })
