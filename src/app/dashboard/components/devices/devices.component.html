@@ -1,5 +1,5 @@
-<div *ngIf="devices$ | async; let devices" class="row pr-2 pl-2">
-  <div *ngFor="let device of devices.result" class="p-1 col-4 col-lg-2 mt-2">
+<div class="row pr-2 pl-2">
+  <div *ngFor="let device of devices$ | async" class="p-1 col-4 col-lg-2 mt-2">
     <app-device [device]="device"></app-device>
   </div>
 </div>

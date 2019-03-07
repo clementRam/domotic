@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SceneService } from '../../services/scene.service';
 
 @Component({
   selector: 'app-automatisation-view',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AutomatisationViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sceneService: SceneService) { }
 
   ngOnInit() {
+    this.sceneService.getScenes().subscribe();
   }
 
 }

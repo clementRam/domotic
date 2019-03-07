@@ -5,12 +5,14 @@ import { pluck } from 'rxjs/operators';
 
 const initState: State = {
     devices: undefined,
-    devicesEditable: false
+    devicesEditable: false,
+    scenes: undefined
 };
 
 export enum DefaultStoreDataNames {
     DEVICES = "devices",
-    DEVICES_EDITABLE = "devicesEditable"
+    DEVICES_EDITABLE = "devicesEditable",
+    SCENES = "scenes"
 }
 
 export class Store {

@@ -1,0 +1,5 @@
+  <div class="row pr-2 pl-2">
+      <div *ngFor="let scene of scenes$ | async" class="p-1 col-4 col-lg-2 mt-2">
+        <app-scene [scene]="scene"></app-scene>
+      </div>
+  </div>
