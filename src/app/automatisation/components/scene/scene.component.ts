@@ -15,11 +15,9 @@ export class SceneComponent implements OnInit {
   constructor(private sceneService: SceneService) { }
 
   ngOnInit() {
-    console.log(this.scene)
   }
 
   handleClick(): void {
-    console.log('ok')
     this.sceneService.setScene(this.scene).subscribe();
   }
 

@@ -165,6 +165,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _container_automatisation_view_automatisation_view_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./container/automatisation-view/automatisation-view.component */ "./src/app/automatisation/container/automatisation-view/automatisation-view.component.ts");
+/* harmony import */ var _components_scene_scene_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/scene/scene.component */ "./src/app/automatisation/components/scene/scene.component.ts");
+/* harmony import */ var _components_scenes_scenes_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/scenes/scenes.component */ "./src/app/automatisation/components/scenes/scenes.component.ts");
+/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../shared/shared.module */ "./src/app/shared/shared.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -174,18 +177,162 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
 var AutomatisationModule = /** @class */ (function () {
     function AutomatisationModule() {
     }
     AutomatisationModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
             imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                _shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]
             ],
-            declarations: [_container_automatisation_view_automatisation_view_component__WEBPACK_IMPORTED_MODULE_2__["AutomatisationViewComponent"]]
+            declarations: [_container_automatisation_view_automatisation_view_component__WEBPACK_IMPORTED_MODULE_2__["AutomatisationViewComponent"], _components_scene_scene_component__WEBPACK_IMPORTED_MODULE_3__["SceneComponent"], _components_scenes_scenes_component__WEBPACK_IMPORTED_MODULE_4__["ScenesComponent"]]
         })
     ], AutomatisationModule);
     return AutomatisationModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/automatisation/components/scene/scene.component.html":
+/*!**********************************************************************!*\
+  !*** ./src/app/automatisation/components/scene/scene.component.html ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"card\" (click)=\"handleClick()\">\n  <div class=\"card-body pr-3 pl-3 pt-2 pb-2\">\n    <div class=\"row\">\n      <div class=\"col\">\n        <span class=\"text-bold\">{{scene.Name}}</span>\n      </div>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/automatisation/components/scene/scene.component.scss":
+/*!**********************************************************************!*\
+  !*** ./src/app/automatisation/components/scene/scene.component.scss ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/automatisation/components/scene/scene.component.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/automatisation/components/scene/scene.component.ts ***!
+  \********************************************************************/
+/*! exports provided: SceneComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SceneComponent", function() { return SceneComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_scene_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/scene.service */ "./src/app/automatisation/services/scene.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SceneComponent = /** @class */ (function () {
+    function SceneComponent(sceneService) {
+        this.sceneService = sceneService;
+    }
+    SceneComponent.prototype.ngOnInit = function () {
+    };
+    SceneComponent.prototype.handleClick = function () {
+        this.sceneService.setScene(this.scene).subscribe();
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], SceneComponent.prototype, "scene", void 0);
+    SceneComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-scene',
+            template: __webpack_require__(/*! ./scene.component.html */ "./src/app/automatisation/components/scene/scene.component.html"),
+            styles: [__webpack_require__(/*! ./scene.component.scss */ "./src/app/automatisation/components/scene/scene.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_services_scene_service__WEBPACK_IMPORTED_MODULE_1__["SceneService"]])
+    ], SceneComponent);
+    return SceneComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/automatisation/components/scenes/scenes.component.html":
+/*!************************************************************************!*\
+  !*** ./src/app/automatisation/components/scenes/scenes.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "  <div class=\"row pr-2 pl-2\">\n      <div *ngFor=\"let scene of scenes$ | async\" class=\"p-1 col-4 col-lg-2 mt-2\">\n        <app-scene [scene]=\"scene\"></app-scene>\n      </div>\n  </div>"
+
+/***/ }),
+
+/***/ "./src/app/automatisation/components/scenes/scenes.component.scss":
+/*!************************************************************************!*\
+  !*** ./src/app/automatisation/components/scenes/scenes.component.scss ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/automatisation/components/scenes/scenes.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/automatisation/components/scenes/scenes.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: ScenesComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScenesComponent", function() { return ScenesComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_store_store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/store/store */ "./src/store/store.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ScenesComponent = /** @class */ (function () {
+    function ScenesComponent(store) {
+        this.store = store;
+    }
+    ScenesComponent.prototype.ngOnInit = function () {
+        this.scenes$ = this.store.select(src_store_store__WEBPACK_IMPORTED_MODULE_1__["DefaultStoreDataNames"].SCENES);
+    };
+    ScenesComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-scenes',
+            template: __webpack_require__(/*! ./scenes.component.html */ "./src/app/automatisation/components/scenes/scenes.component.html"),
+            styles: [__webpack_require__(/*! ./scenes.component.scss */ "./src/app/automatisation/components/scenes/scenes.component.scss")]
+        }),
+        __metadata("design:paramtypes", [src_store_store__WEBPACK_IMPORTED_MODULE_1__["Store"]])
+    ], ScenesComponent);
+    return ScenesComponent;
 }());
 
 
@@ -199,7 +346,7 @@ var AutomatisationModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "<app-scenes></app-scenes>"
 
 /***/ }),
 
@@ -225,6 +372,7 @@ module.exports = ""
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AutomatisationViewComponent", function() { return AutomatisationViewComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_scene_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/scene.service */ "./src/app/automatisation/services/scene.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -235,10 +383,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var AutomatisationViewComponent = /** @class */ (function () {
-    function AutomatisationViewComponent() {
+    function AutomatisationViewComponent(sceneService) {
+        this.sceneService = sceneService;
     }
     AutomatisationViewComponent.prototype.ngOnInit = function () {
+        this.sceneService.getScenes().subscribe();
     };
     AutomatisationViewComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -246,9 +397,74 @@ var AutomatisationViewComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./automatisation-view.component.html */ "./src/app/automatisation/container/automatisation-view/automatisation-view.component.html"),
             styles: [__webpack_require__(/*! ./automatisation-view.component.scss */ "./src/app/automatisation/container/automatisation-view/automatisation-view.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_scene_service__WEBPACK_IMPORTED_MODULE_1__["SceneService"]])
     ], AutomatisationViewComponent);
     return AutomatisationViewComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/automatisation/services/scene.service.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/automatisation/services/scene.service.ts ***!
+  \**********************************************************/
+/*! exports provided: SceneService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SceneService", function() { return SceneService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var src_store_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/store/store */ "./src/store/store.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var SceneService = /** @class */ (function () {
+    function SceneService(http, store) {
+        this.http = http;
+        this.store = store;
+    }
+    SceneService.prototype.getScenes = function () {
+        var _this = this;
+        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]()
+            .set('type', 'scenes');
+        return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].apiUrl, { params: params })
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (scenes) {
+            _this.store.set(src_store_store__WEBPACK_IMPORTED_MODULE_4__["DefaultStoreDataNames"].SCENES, scenes.result);
+            return scenes;
+        }));
+    };
+    SceneService.prototype.setScene = function (scene) {
+        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]()
+            .set('type', 'command')
+            .append('param', 'switchscene')
+            .append('idx', scene.idx)
+            .append('switchcmd', 'On');
+        return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].apiUrl, { params: params });
+    };
+    SceneService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], src_store_store__WEBPACK_IMPORTED_MODULE_4__["Store"]])
+    ], SceneService);
+    return SceneService;
 }());
 
 
@@ -348,7 +564,7 @@ var DeviceComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"devices$ | async; let devices\" class=\"row pr-2 pl-2\">\n  <div *ngFor=\"let device of devices.result\" class=\"p-1 col-4 col-lg-2 mt-2\">\n    <app-device [device]=\"device\"></app-device>\n  </div>\n</div>"
+module.exports = "<div class=\"row pr-2 pl-2\">\n  <div *ngFor=\"let device of devices$ | async\" class=\"p-1 col-4 col-lg-2 mt-2\">\n    <app-device [device]=\"device\"></app-device>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -653,11 +869,10 @@ var DeviceService = /** @class */ (function () {
             .append('filter', 'all')
             .append('used', 'true');
         return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].apiUrl, {
-            params: params,
-            observe: 'response'
-        }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (response) {
-            _this.store.set(src_store_store__WEBPACK_IMPORTED_MODULE_3__["DefaultStoreDataNames"].DEVICES, response.body);
-            return response.body;
+            params: params
+        }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (devices) {
+            _this.store.set(src_store_store__WEBPACK_IMPORTED_MODULE_3__["DefaultStoreDataNames"].DEVICES, devices.result);
+            return devices;
         }));
     };
     DeviceService.prototype.getDevice = function (idx) {
@@ -756,7 +971,7 @@ module.exports = "<nav class=\"navbar fixed-bottom navbar-light\">\n  <div class
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".navbar {\n  background-color: rgba(0, 0, 0, 0.5); }\n  .navbar div.col a {\n    color: #ccc; }\n  .navbar div.col a.active {\n      color: orange; }\n  .navbar div.col a.active .text-logo {\n        color: orange; }\n  .navbar div.col a:hover {\n      text-decoration: none; }\n  .navbar div.col a fa-icon {\n      font-size: 1.8rem; }\n  .navbar div.col a .text-logo {\n      font-size: 0.65rem;\n      color: #ccc; }\n  @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {\n  .navbar {\n    padding-bottom: 40px; } }\n"
+module.exports = ".navbar {\n  background-color: rgba(0, 0, 0, 0.75); }\n  .navbar div.col a {\n    color: #aaa; }\n  .navbar div.col a.active {\n      color: orange; }\n  .navbar div.col a.active .text-logo {\n        color: orange; }\n  .navbar div.col a:hover {\n      text-decoration: none; }\n  .navbar div.col a fa-icon {\n      font-size: 1.8rem; }\n  .navbar div.col a .text-logo {\n      font-size: 0.65rem;\n      color: #aaa; }\n  @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {\n  .navbar {\n    padding-bottom: 40px; } }\n"
 
 /***/ }),
 
@@ -1304,12 +1519,14 @@ var __assign = (undefined && undefined.__assign) || Object.assign || function(t)
 
 var initState = {
     devices: undefined,
-    devicesEditable: false
+    devicesEditable: false,
+    scenes: undefined
 };
 var DefaultStoreDataNames;
 (function (DefaultStoreDataNames) {
     DefaultStoreDataNames["DEVICES"] = "devices";
     DefaultStoreDataNames["DEVICES_EDITABLE"] = "devicesEditable";
+    DefaultStoreDataNames["SCENES"] = "scenes";
 })(DefaultStoreDataNames || (DefaultStoreDataNames = {}));
 var Store = /** @class */ (function () {
     function Store() {
