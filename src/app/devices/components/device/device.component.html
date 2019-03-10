@@ -1,0 +1,34 @@
+<div class="card" [class.off]="device.SubType === 'Switch' && device.Status === 'Off'" (click)="handleClick()">
+  <div class="card-body pr-3 pl-3 pt-2 pb-2">
+    <div class="row">
+      <div class="col pr-2 pl-2">
+        <img src="assets/images/{{device.TypeImg}}.png" class="device-img" alt="device icon">
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col pr-2 pl-2 device-name">
+        <span *ngIf="!devicesEditable; else editDescription">
+          {{ device.Description }}
+        </span>
+        <ng-template #editDescription>
+          <input type="text" class="form-control" value="{{device.Description}}" (focusout)="handleFocusOutDescription($event)">
+        </ng-template>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col pr-2 pl-2 device-name">
+        <span *ngIf="!devicesEditable; else editName">
+          {{ device.Name }}
+        </span>
+        <ng-template #editName>
+            <input id="deviceName" type="text" class="form-control" value="{{device.Name}}" (focusout)="handleFocusOutName($event)">
+        </ng-template>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col pr-2 pl-2 font-weight-light">
+        {{ device.Data }} <span *ngIf="device.SwitchType == 'Dimmer'" class="pl-2">{{ device.Level}}%</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,18 +9,24 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { SharedModule } from './shared/shared.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AutomatisationModule } from './automatisation/automatisation.module';
+import { HomeModule } from './home/home.module';
+import { DevicesModule } from './devices/devices.module';
+import { ScenesModule } from './scenes/scenes.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     SharedModule,
     DashboardModule,
-    AutomatisationModule
+    AutomatisationModule,
+    HomeModule,
+    DevicesModule,
+    ScenesModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

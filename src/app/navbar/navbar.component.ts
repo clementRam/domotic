@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faHome, faClock } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faClock, faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +10,7 @@ export class NavbarComponent implements OnInit {
 
   public faHome = faHome;
   public faClock = faClock;
+  public faTachometerAlt = faTachometerAlt;
 
   constructor() { }
 

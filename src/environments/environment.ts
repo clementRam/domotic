@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  domoticzUrl: 'http://raspberry:8080',
   apiUrl: 'http://raspberry:8080/json.htm'
 };
 

@@ -3,6 +3,7 @@ $inactiveColor: #aaa;
 
 .navbar {
     background-color: rgba($color: #000000, $alpha: 0.75);
+    padding: 0 0 10px 0;
     div.col {
         a{
             color: $inactiveColor;
@@ -25,6 +26,7 @@ $inactiveColor: #aaa;
         }
     }
 }
+
 @media only screen 
     and (device-width : 375px) 
     and (device-height : 812px) 

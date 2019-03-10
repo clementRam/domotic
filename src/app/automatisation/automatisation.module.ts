@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AutomatisationViewComponent } from './container/automatisation-view/automatisation-view.component';
-import { SceneComponent } from './components/scene/scene.component';
-import { ScenesComponent } from './components/scenes/scenes.component';
 import { SharedModule } from '../shared/shared.module';
+import { AutomatisationViewComponent } from './container/automatisation-view/automatisation-view.component';
+import { ScenesModule } from '../scenes/scenes.module';
 
 @NgModule({
   imports: [
     CommonModule, 
-    SharedModule
+    SharedModule,
+    ScenesModule
   ],
-  declarations: [AutomatisationViewComponent, SceneComponent, ScenesComponent]
+  declarations: [
+    AutomatisationViewComponent
+  ]
 })
 export class AutomatisationModule { }

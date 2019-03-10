@@ -1,9 +1,17 @@
 <nav class="navbar fixed-bottom navbar-light">
   <div class="col text-center">
     <a [routerLink]="['/dashboard']" routerLinkActive="active">
-      <fa-icon [icon]="faHome"></fa-icon>
+      <fa-icon [icon]="faTachometerAlt"></fa-icon>
       <div class="text-logo">
         {{'dashboard' | translate}}
+      </div>
+    </a>
+  </div>
+  <div class="col text-center">
+    <a [routerLink]="['/home']" routerLinkActive="active">
+      <fa-icon [icon]="faHome"></fa-icon>
+      <div class="text-logo">
+        {{'home' | translate}}
       </div>
     </a>
   </div>

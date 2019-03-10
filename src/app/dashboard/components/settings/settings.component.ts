@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 
 export class SettingsComponent implements OnInit {
 
-  public addDeviceUrl = environment.apiUrl + '/#/Hardware';
+  public addDeviceUrl = environment.domoticzUrl + '/#/Hardware';
   public devicesEditable$: Observable<boolean>;
 
   constructor(private store: Store) { }
