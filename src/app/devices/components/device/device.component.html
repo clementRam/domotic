@@ -27,7 +27,11 @@
     </div>
     <div class="row">
       <div class="col pr-2 pl-2 font-weight-light">
-        {{ device.Data }} <span *ngIf="device.SwitchType == 'Dimmer'" class="pl-2">{{ device.Level}}%</span>
+        <span *ngIf="device.SwitchType == 'Dimmer'; else data">{{ device.Level}}%</span>
+        <ng-template #data>
+            {{ device.Data }}
+        </ng-template>
+        
       </div>
     </div>
   </div>
