@@ -1,0 +1,3 @@
+[submodule "domotic-prod"]
+	path = domotic-prod
+	url = https://github.com/clementRam/domotic-prod.git
