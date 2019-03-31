@@ -28,7 +28,7 @@ export class DeviceComponent implements OnInit {
     if(this.deviceService.isSwitchType(this.device) && !this.devicesEditable)
       this.deviceService.switchState(this.device).subscribe();
   }
-
+  
   handleFocusOutName(event: any): void {
     this.deviceService.updateName(this.device, event.target.value).subscribe();
   }
