@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DeviceService } from 'src/app/devices/services/device.service';
-import { SceneService } from 'src/app/scenes/services/scene.service';
+import { DeviceService } from 'src/app/shared/services/device.service';
+import { SceneService } from 'src/app/shared/services/scene.service';
 
 @Component({
   selector: 'app-dashboard-view',
@@ -12,7 +12,7 @@ export class DashboardViewComponent implements OnInit {
   constructor(private deviceService: DeviceService, private sceneService: SceneService) { }
 
   ngOnInit() {
-    this.deviceService.getDevices().subscribe();
+    this.deviceService.getDevices({favorite: "1"}).subscribe();
     this.sceneService.getScenes().subscribe();
   }
 

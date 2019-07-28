@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Notification } from '../models/notification.model';
+import { NotificationTypes } from '../models/notification-types.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class NotificationService {
 
   constructor() { }
 
-  sendNotificationTemp(message: string, type: string) {
+  sendNotificationTemp(message: string, type: NotificationTypes) {
     this.notification = new Notification(message, type);
     this.emitNotificationSubject();
     setTimeout(() => {

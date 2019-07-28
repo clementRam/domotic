@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SceneService } from 'src/app/scenes/services/scene.service';
+import { SceneService } from 'src/app/shared/services/scene.service';
 
 @Component({
   selector: 'app-automatisation-view',

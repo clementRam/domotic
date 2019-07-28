@@ -3,30 +3,26 @@ import { NgModule } from '@angular/core';
 import { httpInterceptorProviders } from "./../http-interceptor";
 
 import { AppComponent } from './app.component';
-import { RouterModule } from '@angular/router';
-import { appRoutes } from '../routes/routes';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { SharedModule } from './shared/shared.module';
-import { NavbarComponent } from './navbar/navbar.component';
 import { AutomatisationModule } from './automatisation/automatisation.module';
 import { HomeModule } from './home/home.module';
-import { DevicesModule } from './devices/devices.module';
-import { ScenesModule } from './scenes/scenes.module';
+import { AppRoutingModule } from './app-routing.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
     SharedModule,
     DashboardModule,
     AutomatisationModule,
     HomeModule,
-    DevicesModule,
-    ScenesModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DeviceService } from 'src/app/devices/services/device.service';
+import { DeviceService } from 'src/app/shared/services/device.service';
 
 @Component({
   selector: 'app-home-view',
@@ -11,7 +11,7 @@ export class HomeViewComponent implements OnInit {
   constructor(private deviceService: DeviceService) { }
 
   ngOnInit() {
-    this.deviceService.getDevices({favorite: 0}).subscribe();
+    this.deviceService.getDevices().subscribe();
   }
 
 }

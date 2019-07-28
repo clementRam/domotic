@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TranslateService } from './shared/services/translate.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,6 @@ import { TranslateService } from './shared/services/translate.service';
 export class AppComponent {
   title = 'domotic';
 
-  constructor(private translate: TranslateService) {
-    translate.use("fr").then(() => {});
+  constructor() {
   }
 }

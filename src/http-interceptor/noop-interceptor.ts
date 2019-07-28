@@ -3,6 +3,7 @@ import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from "@angular/c
 import { Observable, of } from "rxjs";
 import { catchError } from "rxjs/operators";
 import { NotificationService } from "src/app/shared/services/notification.service";
+import { NotificationTypes } from "src/app/shared/models/notification-types.enum";
 
 @Injectable()
 export class NoopInterceptor implements HttpInterceptor {
@@ -17,22 +18,22 @@ export class NoopInterceptor implements HttpInterceptor {
       if (error.error instanceof ErrorEvent) {
         this.notificationService.sendNotificationTemp(
           `Error ${error.status}: ${error.error.error}`,
-          "danger"
+          NotificationTypes.Danger
         );
       } else if (error.error && error.error.message) {
         this.notificationService.sendNotificationTemp(
           `Error ${error.status}: ${error.error.message}`,
-          "danger"
+          NotificationTypes.Danger
         );
       } else if( error.error instanceof ProgressEvent) {
         this.notificationService.sendNotificationTemp(
           `Error ${error.status}: ${error.message}`,
-          "danger"
+          NotificationTypes.Danger
         );
       } else {
         this.notificationService.sendNotificationTemp(
           `Error ${error.status}: ${error.error}`,
-          "danger"
+          NotificationTypes.Danger
         );
       }
       return of(error);

@@ -1,17 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NotificationComponent } from './notification/notification.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Store } from 'src/store/store';
-import { TranslatePipe } from './pipes/translate.pipe';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatSliderModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material';
+import { NotificationComponent } from './components/notification/notification.component';
+import { SceneComponent } from './components/scenes/components/scene/scene.component';
+import { ScenesComponent } from './components/scenes/components/scenes/scenes.component';
+import { DeviceComponent } from './components/devices/components/device/device.component';
+import { DevicesComponent } from './components/devices/components/devices/devices.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
+    RouterModule,
     FontAwesomeModule,
     MatSliderModule,
     BrowserAnimationsModule
@@ -21,15 +27,23 @@ import {MatSliderModule} from '@angular/material';
   ],
   declarations: [
     NotificationComponent,
-    TranslatePipe
+    NavbarComponent,
+    DeviceComponent,
+    DevicesComponent,
+    SceneComponent,
+    ScenesComponent
   ],
   exports: [
-    TranslatePipe,
     NotificationComponent,
+    NavbarComponent,
     HttpClientModule,
     FontAwesomeModule,
     MatSliderModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DeviceComponent,
+    DevicesComponent,
+    SceneComponent,
+    ScenesComponent
   ]
 })
 export class SharedModule { }

@@ -1,6 +1,6 @@
 <div class="settings">
     <a *ngIf="!(devicesEditable$ | async); else saveBtn" class="btn btn-secondary btn-edit mr-3" (click)="handleClickEdit()">
-      {{ 'edit' | translate }}
+      Modifier
     </a>
     <ng-template #saveBtn>
       <a class="btn btn-secondary btn-edit mr-3" (click)="handleClickSave()">Ok</a>

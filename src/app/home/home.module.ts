@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeViewComponent } from './container/home-view/home-view.component';
-import { DevicesModule } from '../devices/devices.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    DevicesModule
+    SharedModule
   ],
   declarations: [
     HomeViewComponent
