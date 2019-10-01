@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Scenes } from '../../../../models/scenes.model';
-import { Store, DefaultStoreDataNames } from 'src/store/store';
+import { Store, DefaultStoreDataNames } from 'src/app/shared/store/store';
 
 @Component({
   selector: 'app-scenes',

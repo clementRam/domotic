@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
-import { Store, DefaultStoreDataNames } from 'src/store/store';
+import { Store, DefaultStoreDataNames } from 'src/app/shared/store/store';
 import { NotificationService } from 'src/app/shared/services/notification.service';
 import { ActionResponse } from 'src/app/shared/models/action-response.model';
 import { NotificationTypes } from 'src/app/shared/models/notification-types.enum';

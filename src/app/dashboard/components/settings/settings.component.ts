@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Store, DefaultStoreDataNames } from 'src/store/store';
+import { Store, DefaultStoreDataNames } from 'src/app/shared/store/store';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 

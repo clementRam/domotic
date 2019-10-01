@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Store, DefaultStoreDataNames } from 'src/store/store';
+import { Store, DefaultStoreDataNames } from 'src/app/shared/store/store';
 import { Devices } from '../../../../models/devices.model';
 
 @Component({

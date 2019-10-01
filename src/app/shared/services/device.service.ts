@@ -4,7 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { Devices } from '../models/devices.model';
-import { DefaultStoreDataNames, Store } from 'src/store/store';
+import { DefaultStoreDataNames, Store } from 'src/app/shared/store/store';
 import { map } from 'rxjs/operators';
 import { DevicesParameters } from '../models/devices-parameters.model';
 import { DeviceImprovementService } from './device-improvement.service';
@@ -38,9 +38,9 @@ export class DeviceService {
       params: httpParams
     }).pipe(map(devices => {
 
-      devices.result = devices.result.map(device => this.deviceImprovementService.addMethodsToDevice(device, this.getDevices()));
+      devices.result = devices.result.map(device => this.deviceImprovementService.addMethodsToDevice(device, this.getDevices(params)));
 
-      this.store.set(DefaultStoreDataNames.DEVICES, devices.result)
+      this.store.set(DefaultStoreDataNames.DEVICES, devices.result);
 
       return devices;
     })

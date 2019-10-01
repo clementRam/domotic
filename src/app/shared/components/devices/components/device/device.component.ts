@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Store, DefaultStoreDataNames } from 'src/store/store';
+import { Store, DefaultStoreDataNames } from 'src/app/shared/store/store';
 import { Device } from '../../../../models/device.model';
 
 @Component({
