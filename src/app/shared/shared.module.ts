@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Store } from 'src/app/shared/store/store';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material';
+import { MatSliderModule } from '@angular/material/slider';
 import { NotificationComponent } from './components/notification/notification.component';
 import { SceneComponent } from './components/scenes/components/scene/scene.component';
 import { ScenesComponent } from './components/scenes/components/scenes/scenes.component';
