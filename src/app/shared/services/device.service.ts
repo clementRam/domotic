@@ -42,8 +42,6 @@ export class DeviceService {
 
       this.store.set(DefaultStoreDataNames.DEVICES, devices.result);
 
-      this.store.select(DefaultStoreDataNames.DEVICES).subscribe(d => console.log('d:', d))
-      
       return devices;
     })
     ) as Observable<Devices>
