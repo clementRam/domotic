@@ -1,12 +1,10 @@
-import { Routes, RouterModule } from "@angular/router";
-import { AutomatisationViewComponent } from "src/app/automatisation/container/automatisation-view/automatisation-view.component";
-import { HomeViewComponent } from "src/app/home/container/home-view/home-view.component";
 import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
-  { path: "automatisation", component: AutomatisationViewComponent },
-  { path: "home", component: HomeViewComponent },
-  { path: "**", redirectTo: "dashboard"}
+  { path: "automatisation", loadChildren: () => import('./automatisation/automatisation.module').then(m => m.AutomatisationModule)},
+  { path: "home", loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+  { path: "dashboard", loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
 ];
 
 @NgModule({

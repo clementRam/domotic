@@ -20,10 +20,6 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     FontAwesomeModule,
     MatSliderModule,
-    BrowserAnimationsModule
-  ],
-  providers: [
-    Store
   ],
   declarations: [
     NotificationComponent,
@@ -31,19 +27,19 @@ import { RouterModule } from '@angular/router';
     DeviceComponent,
     DevicesComponent,
     SceneComponent,
-    ScenesComponent
+    ScenesComponent,
   ],
   exports: [
     NotificationComponent,
     NavbarComponent,
+    CommonModule,
     HttpClientModule,
     FontAwesomeModule,
     MatSliderModule,
-    BrowserAnimationsModule,
     DeviceComponent,
     DevicesComponent,
     SceneComponent,
-    ScenesComponent
+    ScenesComponent, 
   ]
 })
 export class SharedModule { }

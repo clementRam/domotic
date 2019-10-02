@@ -42,7 +42,6 @@ export class DeviceImprovementService {
       .pipe(map((response: HttpResponse<ActionResponse>) => {
         if(response.body.status === 'OK') {
           devices$.subscribe();
-          // this.getDevices().subscribe();
         } else {
           this.notificationService.sendNotificationTemp(response.body.status + ': ' + response.body.title, NotificationTypes.Danger);
         }

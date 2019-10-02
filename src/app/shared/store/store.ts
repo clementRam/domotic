@@ -2,6 +2,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { State } from './state';
 import { distinctUntilChanged } from 'rxjs/operators';
 import { pluck } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
 
 const initState: State = {
     devices: undefined,
@@ -15,6 +16,9 @@ export enum DefaultStoreDataNames {
     SCENES = "scenes"
 }
 
+@Injectable({
+    providedIn: 'root'
+  })
 export class Store {
 
     private subject = new BehaviorSubject<State>(initState);
